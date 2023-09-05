@@ -5,4 +5,7 @@
         public function index():View{
             return view('home.index');
         }
+        public function indexAdmin():View{
+            return view('home.indexAdmin');
+        }
     }

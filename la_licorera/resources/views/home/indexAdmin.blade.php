@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('title', 'La_Licorera')
+@extends('layouts.admin')
+@section('title', 'La_Licorera (administracion)')
 @section('content')
 <div class="text-center">
     Welcome to the application
