@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('title'); //existe el tipo text
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('recipe_id')->references('id')->on('recipes');
             $table->timestamps();
         });
     }
