@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('ocations');
             $table->string('instruction');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('products_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

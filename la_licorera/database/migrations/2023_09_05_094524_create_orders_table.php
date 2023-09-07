@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('estate');
+            $table->string('state');
             $table->integer('total');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('delivery_date');
             //podriamos usar created y updated at?
             $table->timestamps();
         });

@@ -12,7 +12,7 @@
     <!--header--esto es para ponerlo como generico o para que solo aparesca en la home page-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-4"> <!--señalar que se hara una nav bar que se podra retraer-->
         <div class= "container">
-            <a class ="navbar-brand" href="{{ route('home.index') }}">La_Licorera</a> <!--{{ route('home.index') }}se esta ponendo a que el letrero de online store vaya a la home page-->
+            <a class ="navbar-brand" href="{{ route('home.index') }}">{{__('layoutAdmin.logo')}}</a> <!--{{ route('home.index') }}se esta ponendo a que el letrero de online store vaya a la home page-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> <!--hacer que el simbolo para sacar la navbar solo aparesca cuando esta en pantalla pequeña -->
                 <span class= "navbar-toggler-icon"></span>
@@ -34,9 +34,9 @@
     <!--footer-->
     <div class="copyright py-4 text-center">
         <div class="container">
-            <small> Copyright -
+            <small> {{__('layoutAdmin.copyright')}} -
                 <a class="text-reset fw-bold text-decoration-none" target="_blank">
-                Pablo Micolta Y Julian Rojas
+                {{__('layoutAdmin.authors')}}
                 </a>
             </small>
         </div>

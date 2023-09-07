@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('title'); //existe el tipo text
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('quantity');
             $table->foreign('recipe_id')->references('id')->on('recipes');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('ingredients');
     }
 };

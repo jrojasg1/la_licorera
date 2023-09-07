@@ -46,6 +46,20 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+
+    /**
+     * $this->atribute['id']-int-Primary key
+     * this->atribute['email']-string-the user's email
+     * this->atribute['email_verified_at']-timestamp- when was the user's email verified as its own
+     * this->atribute['password']-string-the user's password
+     * this->atribute['addresses']-json- the list of addresses that the user has
+     * this->atribute['wallet']-int-the amount of money the user has
+     * this->atribute['role']-string-if the user is an admin or a end user
+     * this->atribute['created_at']-timestamp-when was this user created
+     * this->atribute['updated_at']-timestamp-when was this user's profile last updated
+     * this->recipes-Recipes[]-the recipes a given user has uploaded 
+     * this->orders-order[]-the order a given user has made
+     */
     public function getId():int
     {
         return $this->attributes['id'];
@@ -135,5 +149,36 @@ class User extends Authenticatable
 
     public function setRole(string $role):void{
         $this->attributes['role']=$role;
+    }
+
+    public function recipes():HasMany
+    {
+        return $this->hasMany(Recipe::class);
+    }
+
+    public function getRecipes():Collection
+    {
+        return $this->Recipes;
+    }
+
+    public function setRecipes(Collection $Recipes)
+    {
+        $this->Recipes=$Recipes;
+    }
+
+    
+    public function items():HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItem():Collection
+    {
+        return $this->items;
+    }
+
+    public function setItems(Collection $Items)
+    {
+        $this->itemss=$Itemss;
     }
 }

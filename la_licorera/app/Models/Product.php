@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+
+use App\Models\Ingredient;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 
 class Product extends Model
 {
@@ -57,12 +61,12 @@ class Product extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function setName(string $name)
+    public function setName(string $name):void
     {
         $this->attributes['name']=$name;
     }
 
-    public function setType(string $type)
+    public function setType(string $type):void
     {
         $this->attributes['type']=$type;
     }
@@ -81,6 +85,37 @@ class Product extends Model
     
     public function setImage(int $image):void{
         $this->attributes['image']=$image;
+    }
+
+    public function ingredients():HasMany
+    {
+        return $this->hasMany(Ingridient::class);
+    }
+
+    public function getIngredients():Collection
+    {
+        return $this->ingredients;
+    }
+
+    public function setIngredients(Collection $Ingredients)
+    {
+        $this->ingredients=$Ingredients;
+    }
+
+    
+    public function items():HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItem():Collection
+    {
+        return $this->items;
+    }
+
+    public function setItems(Collection $Items)
+    {
+        $this->itemss=$Itemss;
     }
 
 }

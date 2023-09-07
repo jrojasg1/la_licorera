@@ -2,6 +2,6 @@
 @section('title', 'La_Licorera (administracion)')
 @section('content')
 <div class="text-center">
-    Welcome to the application
+    {{__('homeAdmin.slogan')}}
 </div>
 @endsection
