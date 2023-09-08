@@ -15,7 +15,6 @@ class Recipe extends Model
         /**
      * $this->atribute['id']-int-Primary key
      * this->atribute['instructions']-string-what must the user do to make this recipe
-     * this->atribute['password']-string-the user's password
      * this->atribute['difficulty']-int- how hard is this recipe according to the person tha tmade it
      * this->User-User-the one that uploaded this recipe 
      * this->ingridients-Ingridient[]-what products are needed for this recipe
@@ -62,7 +61,11 @@ class Recipe extends Model
         $this->attributes['user_id']=$uid;
     }
 
-    
+    public function getUser():User
+    {
+        return $this->User;
+    }
+
     public function setUser(User $user):void
     {
         $this->User=$user;

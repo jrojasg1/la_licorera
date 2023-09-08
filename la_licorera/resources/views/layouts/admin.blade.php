@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
     <!--traer cosas de boostrap (el stylesheet)-->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" /> <!--traer estilos de la carpeta de css-->
-    <title>@yield('title','Online Store')</title>
+    <title>@yield('title',__('layoutAdmin.title'))</title>
 </head>
 <body>
     <!--header--esto es para ponerlo como generico o para que solo aparesca en la home page-->
@@ -26,7 +26,7 @@
 </br>
     <header class = "masthead bg-primary text-white text-center py-4">
         <div class="container d-flex align-items-center flex-column">
-            <h2>@yield('subtitle','Tu mundo con el mejor trago')</h2>
+            <h2>@yield('subtitle',__('layoutAdmin.slogan'))</h2>
         </div>  
     </header>
     <!--header-->
