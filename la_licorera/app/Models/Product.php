@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\hasMany;
+use Illuminate\Http\Request;
 
 class Product extends Model
 {
@@ -23,6 +24,20 @@ class Product extends Model
      * this->Ingridient-Ingridient-relation between each product and however many recipes they appear in 
      * this->Item-Item[]-relation between a product and the orders they appear in
      */
+
+     public static function validate(Request $request): void 
+     {
+          $request->validate([
+             'name' => 'required|max:255',
+             'type' => 'required',
+             'description' => 'required' ,
+             'alcoholContent' =>  'required' ,
+             'price' =>  'required|numeric|gt:0' ,
+             'stock' => 'required' 
+         ]);
+     }
+
+
     public function getId():int
     {
         return $this->attributes['id'];
@@ -90,8 +105,18 @@ class Product extends Model
     }
 
     
-    public function setAlcoholContent(int $price):void{
+    public function setAlcoholContent(int $alcoholContent):void{
+        $this->attributes['alcoholContent']=$alcoholContent;
+    }
+
+
+    public function setPrice(int $price):void{
         $this->attributes['price']=$price;
+    }
+
+
+    public function setStock(int $stock):void{
+        $this->attributes['stock']=$stock;
     }
 
     

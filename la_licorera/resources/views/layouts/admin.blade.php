@@ -1,48 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet"
+        crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
     <!--traer cosas de boostrap (el stylesheet)-->
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" /> <!--traer estilos de la carpeta de css-->
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
+    <!--traer estilos de la carpeta de css-->
     <title>@yield('title','Online Store')</title>
 </head>
+
 <body>
-    <!--header--esto es para ponerlo como generico o para que solo aparesca en la home page-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-4"> <!--señalar que se hara una nav bar que se podra retraer-->
-        <div class= "container">
-            <a class ="navbar-brand" href="{{ route('home.index') }}">{{__('layoutAdmin.logo')}}</a> <!--{{ route('home.index') }}se esta ponendo a que el letrero de online store vaya a la home page-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> <!--hacer que el simbolo para sacar la navbar solo aparesca cuando esta en pantalla pequeña -->
-                <span class= "navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> <!--poniendo cosas en la navbar-->
-                <div class="navbar-nav ms-auto">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
+    <title>@yield('title', 'Admin - Online Store')</title>
+    </head>
+
+    <body>
+        <div class="row g-0">
+            <!-- sidebar -->
+            <div class="p-3 col fixed text-white bg-dark">
+                <a href="#" class="text-white text-decoration-none">
+                    <span class="fs-4">Admin Panel</span>
+                </a>
+                <hr />
+                <ul class="nav flex-column">
+                    <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">- Admin -
+                            Home</a></li>
+                    <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">- Admin - Products</a></li>
+                    <li>
+                        <a href="#" class="mt-2 btn bg-primary text-white">Go back to the
+                            home page</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- sidebar -->
+            <div class="col content-grey">
+                <nav class="p-3 shadow text-end">
+                    <span class="profile-font">Admin</span>
+                    <img class="img-profile rounded-circle" src="{{ asset('/img/undraw_profile.svg') }}">
+                </nav>
+                <div class="g-0 m-5">
+                    @yield('content')
                 </div>
             </div>
         </div>
-    </nav>
-</br>
-    <header class = "masthead bg-primary text-white text-center py-4">
-        <div class="container d-flex align-items-center flex-column">
-            <h2>@yield('subtitle','Tu mundo con el mejor trago')</h2>
-        </div>  
-    </header>
-    <!--header-->
-    <div class="container py-4">@yield('content')</div>
-    <!--footer-->
-    <div class="copyright py-4 text-center">
-        <div class="container">
-            <small> {{__('layoutAdmin.copyright')}} -
-                <a class="text-reset fw-bold text-decoration-none" target="_blank">
-                {{__('layoutAdmin.authors')}}
-                </a>
-            </small>
+        <!-- footer -->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container">
+                <small>
+                    Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
+                        href="https://twitter.com/danielgarax">
+                        Pablo - Julian
+                    </a>
+                </small>
+            </div>
         </div>
-    </div>
-    <!--footer-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-    </script>
-</body>
+        <!-- footer -->
+       
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous">
+        </script>
+
+    </body>
+
 </html>
