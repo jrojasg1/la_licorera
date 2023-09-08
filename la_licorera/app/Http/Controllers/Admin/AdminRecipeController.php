@@ -7,14 +7,17 @@
     use Illuminate\Http\RedirectResponse;
     
 
-    class AdminRecipeController extends Controller{
-        public function index():View
+    class AdminRecipeController extends Controller
+    {
+
+        public function index()
         {
             $viewData["title"]= "Products - Online Store";
             $viewData["subtitle"] =  "List of products";
             $viewData["recipe"] = Recipe::with('users')->get();
             return view('admin.recipe.index')->with("viewData", $viewData);
         }
+
         public function show(string $id):View
         {
             $viewData=[];
@@ -36,7 +39,7 @@
         return view('admin.recipe.create')->with("viewData", $viewData);
         }
 
-        public function save($request):RedirectResponse
+        public function save(Request $request): RedirectResponse
         {
 
             Recipe::validate($request);
