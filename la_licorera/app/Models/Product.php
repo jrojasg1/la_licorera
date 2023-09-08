@@ -4,6 +4,7 @@ namespace App\Models;
 
 
 use App\Models\Ingredient;
+use App\Models\Item;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
@@ -11,6 +12,17 @@ use Illuminate\Database\Eloquent\Relations\hasMany;
 
 class Product extends Model
 {
+        /**
+     * $this->atribute['id']-int-Primary key
+     * this->atribute['name']-string-the name of this product
+     * this->atribute['type']-string-the kind of drink it is
+     * this->atribute['alcohol_content']-int- the alcohol concentration of this product
+     *  this->atribute['price']-int- how much does it cost
+     * this->atribute['stock']-int- how many of this product do we have available
+     * this->atribute['image']-string- the name of the file for the foto
+     * this->Ingridient-Ingridient-relation between each product and however many recipes they appear in 
+     * this->Item-Item[]-relation between a product and the orders they appear in
+     */
     public function getId():int
     {
         return $this->attributes['id'];
@@ -94,12 +106,12 @@ class Product extends Model
 
     public function getIngredients():Collection
     {
-        return $this->ingredients;
+        return $this->Ingredients;
     }
 
     public function setIngredients(Collection $Ingredients)
     {
-        $this->ingredients=$Ingredients;
+        $this->Ingredients=$Ingredients;
     }
 
     
@@ -110,12 +122,12 @@ class Product extends Model
 
     public function getItem():Collection
     {
-        return $this->items;
+        return $this->Items;
     }
 
     public function setItems(Collection $Items)
     {
-        $this->itemss=$Itemss;
+        $this->Items=$Items;
     }
 
 }

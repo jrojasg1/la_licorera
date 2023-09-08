@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description');
             $table->integer('alcohol_content');
             $table->integer('price');
+            $table->integer('stock');
             $table->string('image');
             //$table->foreign('recipes_id')->references('id')->on('recipes');
             $table->timestamps();

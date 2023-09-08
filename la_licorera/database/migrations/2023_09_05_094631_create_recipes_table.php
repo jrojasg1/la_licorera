@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('instructions');
+            $table->text('instructions');
             $table->integer('difficulty');
-            $table->string('ocations');
-            $table->string('instruction');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

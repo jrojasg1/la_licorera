@@ -6,9 +6,20 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 
 class Order extends Model
 {
+            /**
+     * $this->atribute['id']-int-Primary key
+     * this->atribute['state']-string- what step of the delivery proces the oreder is
+     * this->atribute['total']-int-the the total value for this order
+     * this->atribute['delivery_date']-string- if it was already delivered when was it delivered
+     * this->User-User-who made this order
+     * this->Item-Item[]-relation between the oreder and the producte it has
+     */
+
     public function getId():int
     {
         return $this->attributes['id'];
@@ -30,7 +41,7 @@ class Order extends Model
         return $this->attributes['user_id'];
     }
 
-    public function getUser():int
+    public function getUser():User
     {
         return $this->User;
     }
@@ -79,12 +90,12 @@ class Order extends Model
 
     public function getItem():Collection
     {
-        return $this->items;
+        return $this->Items;
     }
 
     public function setItems(Collection $Items)
     {
-        $this->itemss=$Itemss;
+        $this->Items=$Items;
     }
 
 }

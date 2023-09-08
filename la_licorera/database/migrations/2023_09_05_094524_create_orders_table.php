@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('state');
             $table->integer('total');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('delivery_date');
+            $table->string('delivery_date')->nullable();
             //podriamos usar created y updated at?
             $table->timestamps();
         });

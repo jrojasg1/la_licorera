@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 
 class User extends Authenticatable
 {
@@ -167,18 +169,18 @@ class User extends Authenticatable
     }
 
     
-    public function items():HasMany
+    public function Orders():HasMany
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Order::class);
     }
 
-    public function getItem():Collection
+    public function getOrder():Collection
     {
-        return $this->items;
+        return $this->Orders;
     }
 
-    public function setItems(Collection $Items)
+    public function setOrders(Collection $Orders)
     {
-        $this->itemss=$Itemss;
+        $this->Orders=$Orders;
     }
 }
