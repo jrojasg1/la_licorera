@@ -3,9 +3,13 @@
     use Illuminate\View\View; //que es Illuminate
     class HomeController extends Controller{
         public function index():View{
-            return view('home.index');
+            $viewData=[];
+            $viewData['title']=__('home.title');
+            return view('home.index')->with('viewData',$viewData);
         }
         public function indexAdmin():View{
-            return view('home.indexAdmin');
+            $viewData=[];
+            $viewData['title']=__('homeAdmin.title');
+            return view('home.indexAdmin')->with('viewData',$viewData);;
         }
     }

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'La_Licorera')
+@section('title', $viewData['title'])
 @section('content')
 <div class="text-center">
     {{__('home.slogan')}}
