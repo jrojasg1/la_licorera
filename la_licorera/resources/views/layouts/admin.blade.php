@@ -38,6 +38,16 @@
                     <li>
                         <a href="#" class="mt-2 btn bg-primary text-white">{{__('layoutAdmin.back')}}</a>
                     </li>
+                    @guest
+                        <li><a class="nav-link active" href="{{ route('login') }}">Login</a></li>
+                        <li><a class="nav-link active" href="{{ route('register') }}">Register</a></li>
+                    @else
+                        <form id="logout" action="{{ route('logout') }}" method="POST">
+                        <li><a role="button" class="nav-link active"
+                        onclick="document.getElementById('logout').submit();">Logout</a></li>
+                    @csrf
+                        </form>
+                    @endguest
                 </ul>
             </div>
             <!-- sidebar -->

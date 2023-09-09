@@ -23,7 +23,7 @@ Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController
 Route::post('/admin/products/store', 'App\Http\Controllers\Admin\AdminProductController@store')->name("admin.product.store");
 Route::get('/admin/recipes', 'App\Http\Controllers\Admin\RecipeController@index')->name("admin.recipe.index");
 Route::get('/admin/recipes/create', 'App\Http\Controllers\Admin\AdminRecipeController@create')->name("admin.recipe.create");
-Route::get('/admin/recipes/save', 'App\Http\Controllers\RecipeController@save')->name("admin.recipe.save");
+Route::post('/admin/recipes/save', 'App\Http\Controllers\RecipeController@save')->name("admin.recipe.save");
 Auth::routes();
 
 

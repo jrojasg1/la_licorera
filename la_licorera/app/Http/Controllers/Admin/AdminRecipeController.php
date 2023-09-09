@@ -1,9 +1,11 @@
 <?php 
     namespace App\Http\Controllers\Admin;
-    use Illuminate\View\View;
-    use App\Models\User;
-    use App\Http\Controllers\Controller;
+
     use App\Models\Recipe;
+    use App\Http\Controllers\Controller;
+    use Illuminate\Http\Request;
+    
+
     class AdminRecipeController extends Controller{
         public function index():View
         {
@@ -33,17 +35,19 @@
         return view('admin.recipe.create')->with("viewData", $viewData);
         }
 
-        public function save(string $id):View
+        public function save($request):RedirectResponse
         {
 
             Recipe::validate($request);
         
-            $newProduct = new Recipe(); 
-            $newProduct->setName($request->input('name')); 
-            $newProduct->setIntructions($request->input('instructions'));
+            $newRecipe = new Recipe(); 
+            $newRecipe->setName($request->input('name')); 
+            $newRecipe->setIntructions($request->input('instructions'));
             $dif=$request->input('difficulty');
-            $newProduct->setAlcoholContent(intval($dif)); 
-            $newProduct->save(); 
+            $newRecipe->setAlcoholContent(intval($dif)); 
+            $userId=auth()->user()->id;
+            $newRecipe->setUserId($userId);
+            $newRecipe->save(); 
             
             return redirect()->route('admin.home.index');
         }

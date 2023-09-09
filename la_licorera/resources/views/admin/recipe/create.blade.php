@@ -17,8 +17,8 @@
                             <form method="POST" action="{{ route('admin.recipe.save') }}">
                                 @csrf
                                 <input type="text" class="form-control mb-2" placeholder="Enter name" name="name" value="{{ old('name') }}" />
-                                <input type="text" class="form-control mb-2" placeholder="Enter price" name="difficulty" value="{{ old('difficulty') }}" />
-                                <textarea row="8" cols="33" type="text" class="form-control mb-2" placeholder="Enter price" name="instructions" value="{{ old('difficulty') }}" ></textarea>
+                                <input type="text" class="form-control mb-2" placeholder="Enter Difficulty" name="difficulty" value="{{ old('difficulty') }}" />
+                                <textarea row="8" cols="33" type="text" class="form-control mb-2" placeholder="" name="instructions" value="{{ old('difficulty') }}" ></textarea>
                                 <input type="submit" class="btn btn-primary" value="Send" />
                             </form>
                         </div>
