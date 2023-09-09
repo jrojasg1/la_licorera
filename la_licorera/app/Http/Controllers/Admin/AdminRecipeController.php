@@ -3,7 +3,7 @@
     use Illuminate\View\View;
     use App\Models\User;
     use App\Models\Recipe;
-    class RecipeController extends Controller{
+    class RecipeAdminController extends Controller{
         public function index():View
         {
             $viewData["title"]= "Products - Online Store";

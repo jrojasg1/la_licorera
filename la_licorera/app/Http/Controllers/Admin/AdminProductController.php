@@ -27,7 +27,8 @@ class AdminProductController extends Controller
         $newProduct->setName($request->input('name')); 
         $newProduct->setType($request->input('type'));
         $newProduct->setDescription($request->input('description')); 
-        $newProduct->setAlcoholContent($request->input('alcoholContent')); 
+        $content=$request->input('alcohol_content');
+        $newProduct->setAlcoholContent(intval($content)); 
         $newProduct->setPrice($request->input('price'));
         $newProduct->setStock($request->input('stock'));  
         $newProduct->setImage(1); 

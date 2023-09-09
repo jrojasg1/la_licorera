@@ -7,9 +7,4 @@
             $viewData['title']=__('home.title');
             return view('home.index')->with('viewData',$viewData);
         }
-        public function indexAdmin():View{
-            $viewData=[];
-            $viewData['title']=__('homeAdmin.title');
-            return view('home.indexAdmin')->with('viewData',$viewData);;
-        }
     }

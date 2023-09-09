@@ -106,7 +106,7 @@ class Product extends Model
 
     
     public function setAlcoholContent(int $alcoholContent):void{
-        $this->attributes['alcoholContent']=$alcoholContent;
+        $this->attributes['alcohol_content']=$alcoholContent;
     }
 
 

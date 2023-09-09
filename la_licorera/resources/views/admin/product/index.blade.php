@@ -3,7 +3,7 @@
 @section('content')
 <div class="card mb-4">
     <div class="card-header">
-        Create Products
+        {{__('productAdmin.create')}}
     </div>
     <div class="card-body">
         @if($errors->any())
@@ -19,16 +19,16 @@
             <input type="text" class="form-control mb-2" placeholder="Enter name" name="name"
                 value="{{ old('name') }}" />
             <select class="form-select" name="type" aria-label="Default select example">
-                <option selected>-Enter type</option>
-                <option value="whisky">whisky</option>
-                <option value="vodka">vodka</option>
-                <option value="tequila">tequila</option>
-                <option value="ron">ron</option>
+                <option selected>-{{__('productAdmin.type')}}</option>
+                <option value="whisky">{{__('productAdmin.whisky')}}</option>
+                <option value="vodka">{{__('productAdmin.vodka')}}</option>
+                <option value="tequila">{{__('productAdmin.tequila')}}</option>
+                <option value="ron">{{__('productAdmin.ron')}}</option>
             </select>
             <input type="text" class="form-control mb-2" placeholder="Enter description" name="description"
                 value="{{ old('description') }}" />
             <input type="number" class="form-control mb-2" placeholder="Enter alcoholContent" name="alcoholContent"
-                value="{{ old('alcoholContent') }}" />
+                value="{{ old('alcohol_content') }}" />
             <input type="number" class="form-control mb-2" placeholder="Enter price" name="price"
                 value="{{ old('price') }}" />
             <input type="number" class="form-control mb-2" placeholder="Enter stock" name="stock"
@@ -39,16 +39,16 @@
 </div>
 <div class="card">
     <div class="card-header">
-        Manage Products
+        {{__('productAdmin.manage')}}
     </div>
     <div class="card-body">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">{{__('productAdmin.id')}}</th>
+                    <th scope="col">{{__('productAdmin.name')}}</th>
+                    <th scope="col">{{__('productAdmin.edit')}}</th>
+                    <th scope="col">{{__('productAdmin.delete')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,8 +56,8 @@
                 <tr>
                     <td>{{ $product->getId() }}</td>
                     <td>{{ $product->getName() }}</td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <td>{{__('productAdmin.edit')}}</td>
+                    <td>{{__('productAdmin.delete')}}</td>
                 </tr>
                 @endforeach
             </tbody>

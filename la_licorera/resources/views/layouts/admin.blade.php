@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
-    <title>@yield('title', 'Admin - Online Store')</title>
+    <title>@yield('title', __('layoutAdmin.subtitle'))</title>
     </head>
 
     <body>
@@ -29,23 +29,21 @@
             <!-- sidebar -->
             <div class="p-3 col fixed text-white bg-dark">
                 <a href="#" class="text-white text-decoration-none">
-                    <span class="fs-4">Admin Panel</span>
+                    <span class="fs-4">{{__('layoutAdmin.panel')}}</span>
                 </a>
                 <hr />
                 <ul class="nav flex-column">
-                    <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">- Admin -
-                            Home</a></li>
-                    <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">- Admin - Products</a></li>
+                    <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">{{__('layoutAdmin.home')}}</a></li>
+                    <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">{{__('layoutAdmin.products')}}</a></li>
                     <li>
-                        <a href="#" class="mt-2 btn bg-primary text-white">Go back to the
-                            home page</a>
+                        <a href="#" class="mt-2 btn bg-primary text-white">{{__('layoutAdmin.back')}}</a>
                     </li>
                 </ul>
             </div>
             <!-- sidebar -->
             <div class="col content-grey">
                 <nav class="p-3 shadow text-end">
-                    <span class="profile-font">Admin</span>
+                    <span class="profile-font">{{__('layoutAdmin.admin')}}</span>
                     <img class="img-profile rounded-circle" src="{{ asset('/img/undraw_profile.svg') }}">
                 </nav>
                 <div class="g-0 m-5">
