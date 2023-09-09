@@ -20,6 +20,15 @@ class Recipe extends Model
      * this->ingridients-Ingridient[]-what products are needed for this recipe
      */
 
+    
+    public static function validate(Request $request): void 
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'difficulty' => 'required|gt:0',
+            'instructions' => 'required' ,
+        ]);
+    }
     public function getId():int
     {
         return $this->attributes['id'];
@@ -49,6 +58,12 @@ class Recipe extends Model
     public function getIngredients():Collection
     {
         return $this->Ingredients;
+    }
+
+    
+    public function setInstructions(string $Instr)
+    {
+        $this->$this->attributes['instructions']=$Instr;
     }
 
     public function setIngredients(Collection $Ingredients)

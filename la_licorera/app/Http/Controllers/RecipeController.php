@@ -24,4 +24,26 @@
             $viewData["recipe"]=$recipe; 
 
         }
+        public function create()
+        {
+        $viewData = [];
+        $viewData["title"] = "Admin Page - Products - Online Store";
+        
+        return view('admin.recipe.create')->with("viewData", $viewData);
+        }
+
+        public function save(Request $request):RedirectResponse
+        {
+
+            Recipe::validate($request);
+        
+            $newProduct = new Recipe(); 
+            $newProduct->setName($request->input('name')); 
+            $newProduct->setIntructions($request->input('instructions'));
+            $dif=$request->input('difficulty');
+            $newProduct->setAlcoholContent(intval($dif)); 
+            $newProduct->save(); 
+            
+            return redirect()->route('admin.home.index');
+        }
     }
