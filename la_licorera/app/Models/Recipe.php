@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\hasMany;
+use Illuminate\Http\Request;
 
 class Recipe extends Model
 {
@@ -60,10 +61,19 @@ class Recipe extends Model
         return $this->Ingredients;
     }
 
-    
-    public function setInstructions(string $Instr)
+    public function setName(string $name):void
     {
-        $this->$this->attributes['instructions']=$Instr;
+        $this->attributes['name']=$name;
+    }
+    
+    public function setDifficulty(string $dif):void
+    {
+        $this->attributes['difficulty']=$dif;
+    }
+
+    public function setIntructions(string $Instr)
+    {
+        $this->attributes['instructions']=$Instr;
     }
 
     public function setIngredients(Collection $Ingredients)

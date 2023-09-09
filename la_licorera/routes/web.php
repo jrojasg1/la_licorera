@@ -25,5 +25,7 @@ Route::get('/admin/recipes', 'App\Http\Controllers\Admin\AdminRecipeController@i
 Route::get('/admin/recipes/create', 'App\Http\Controllers\Admin\AdminRecipeController@create')->name("admin.recipe.create");
 Route::post('/admin/recipes/save', 'App\Http\Controllers\Admin\AdminRecipeController@save')->name("admin.recipe.save");
 
+Auth::routes();
+
 
 

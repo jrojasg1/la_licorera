@@ -70,11 +70,11 @@ class Ingredient extends Model
 
     public function getQuantity():int
     {
-        return $this->attribute['quantity'];
+        return $this->attributes['quantity'];
     }
 
     public function setQuantity(int $quantity):void
     {
-        $this->attribute['quantity']=$quantity;
+        $this->attributes['quantity']=$quantity;
     }
 }
