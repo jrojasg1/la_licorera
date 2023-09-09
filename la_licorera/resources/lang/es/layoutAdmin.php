@@ -8,5 +8,9 @@
         'home'=>'Admin - Pagina principal',
         'panel'=>'Panel  de Admin ',
         'back'=>'Volver a la pagina principal',
+        'recipe'=>'Crear receta',
         'admin'=>'Admin',
+        'logIn'=>'Iniciar session',
+        'register'=>'Registrarse',
+        'logOut'=>'Salir de session'
     ];

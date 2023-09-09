@@ -67,6 +67,12 @@ class Order extends Model
         $this->attributes['delivery_date']=$ddate;
     } 
     
+    
+    public function setTotal(int $total):void
+    {
+        $this->attributes['total']=$total;
+    } 
+
     public function setUserId(int $uid):void
     {
         $this->attributes['user_id']=$uid;

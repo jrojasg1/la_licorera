@@ -16,7 +16,7 @@
 
         <form method="POST" action="{{ route('admin.product.store') }}">
             @csrf
-            <input type="text" class="form-control mb-2" placeholder="Enter name" name="name"
+            <input type="text" class="form-control mb-2" placeholder="{{__('productAdmin.name')}}" name="name"
                 value="{{ old('name') }}" />
             <select class="form-select" name="type" aria-label="Default select example">
                 <option selected>-{{__('productAdmin.type')}}</option>
@@ -25,15 +25,15 @@
                 <option value="tequila">{{__('productAdmin.tequila')}}</option>
                 <option value="ron">{{__('productAdmin.ron')}}</option>
             </select>
-            <input type="text" class="form-control mb-2" placeholder="Enter description" name="description"
+            <input type="text" class="form-control mb-2" placeholder={{__('productAdmin.description')}} name="description"
                 value="{{ old('description') }}" />
-            <input type="number" class="form-control mb-2" placeholder="Enter alcoholContent" name="alcoholContent"
+            <input type="number" class="form-control mb-2" placeholder={{__('productAdmin.alcoholContent')}} name="alcoholContent"
                 value="{{ old('alcohol_content') }}" />
-            <input type="number" class="form-control mb-2" placeholder="Enter price" name="price"
+            <input type="number" class="form-control mb-2" placeholder="{{__('productAdmin.price')}}" name="price"
                 value="{{ old('price') }}" />
-            <input type="number" class="form-control mb-2" placeholder="Enter stock" name="stock"
+            <input type="number" class="form-control mb-2" placeholder="{{__('productAdmin.stock')}}" name="stock"
                 value="{{ old('stock') }}" />
-            <input type="submit" class="btn btn-success" value="Enviar" />
+            <input type="submit" class="btn btn-success" value="{{__('productAdmin.submit')}}" />
         </form>
     </div>
 </div>

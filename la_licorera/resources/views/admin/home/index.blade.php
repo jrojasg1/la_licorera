@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'La_Licorera (administracion)')
+@section('title', __('homeAdmin.title'))
 @section('content')
 <div class="card">
 <div class="card-header">

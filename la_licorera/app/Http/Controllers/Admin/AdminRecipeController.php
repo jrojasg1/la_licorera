@@ -22,7 +22,7 @@
         public function create()
         {
         $viewData = [];
-        $viewData["title"] = "Admin Page - Products - Online Store";
+        $viewData["title"] = __('recipeAdmin.title');
         $viewData["products"]=Product::all();
         return view('admin.recipe.create')->with("viewData", $viewData);
         }
@@ -35,7 +35,7 @@
             $newRecipe = new Recipe(); 
             $newRecipe->setName($request->input('name')); 
             $newRecipe->setIntructions($request->input('instructions'));
-            $dif=$request->input('difficulty');
+            $dif = $request->input('difficulty');
             $newRecipe->setDifficulty(($dif));
             $userId=auth()->user()->id;
             $newRecipe->setUserId($userId);

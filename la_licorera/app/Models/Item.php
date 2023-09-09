@@ -19,6 +19,14 @@ class Item extends Model
      * this->Product-Product- the product this item is "representing"
      */
 
+    public function setAmount(int $amount):void
+    {
+        $this->attributes['amount']=$amount;
+    }
+    public function setSubtotal(int $subtotal):void
+    {
+        $this->attributes['subtotal']=$subtotal;
+    }
     public function setProductId(int $pid):void
     {
         $this->attributes['product_id']=$pid;

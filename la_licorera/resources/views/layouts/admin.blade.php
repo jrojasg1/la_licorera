@@ -35,19 +35,21 @@
                 <ul class="nav flex-column">
                     <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">{{__('layoutAdmin.home')}}</a></li>
                     <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">{{__('layoutAdmin.products')}}</a></li>
-                    <li>
-                        <a href="#" class="mt-2 btn bg-primary text-white">{{__('layoutAdmin.back')}}</a>
-                    </li>
+
                     @guest
-                        <li><a class="nav-link active" href="{{ route('login') }}">Login</a></li>
-                        <li><a class="nav-link active" href="{{ route('register') }}">Register</a></li>
+                        <li><a class="nav-link active" href="{{ route('login') }}">{{__('layoutAdmin.logIn')}}</a></li>
+                        <li><a class="nav-link active" href="{{ route('register') }}">{{__('layoutAdmin.register')}}</a></li>
                     @else
+                        <li><a class="nav-link text-white" href="{{ route('admin.recipe.create') }}">{{__('layoutAdmin.recipe')}}</a></li>
                         <form id="logout" action="{{ route('logout') }}" method="POST">
                         <li><a role="button" class="nav-link active"
-                        onclick="document.getElementById('logout').submit();">Logout</a></li>
+                        onclick="document.getElementById('logout').submit();">{{__('layoutAdmin.logOut')}}</a></li>
                     @csrf
                         </form>
                     @endguest
+                    <li>
+                        <a href="#" class="mt-2 btn bg-primary text-white">{{__('layoutAdmin.back')}}</a>
+                    </li>
                 </ul>
             </div>
             <!-- sidebar -->
