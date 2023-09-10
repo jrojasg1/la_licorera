@@ -31,7 +31,7 @@
             <div class="text-end">
                 <a class="btn btn-outline-secondary mb-2"><b>{{__('cart.total')}}</b> ${{ $viewData["total"] }}</a>
                 @if (count($viewData["products"]) > 0) 
-                <a a href="{{ route('cart.purchase') }}" class=" btn bg-primary text-white mb-2" >Purchase</a>
+                <a a href="{{ route('cart.purchase') }}" class=" btn bg-primary text-white mb-2" >{{__('cart.buy')}}</a>
                 <a href="{{ route('cart.delete') }}">
                     <button class="btn btn-danger mb-2">
                     {{__('cart.empty')}}

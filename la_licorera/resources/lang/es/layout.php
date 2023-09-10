@@ -6,6 +6,7 @@
         'copyright'=>'Derechos de autor',
         'authors'=>'Pablo Micolta Y Julian Rojas',
         'cart'=>'Cart',
+        'order'=>'Mis ordenes',
         'licor'=>'Licores',
         'logIn'=>'Iniciar session',
         'register'=>'Registrarse',
