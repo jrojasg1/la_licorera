@@ -30,16 +30,18 @@
                 <div class="navbar-nav ms-auto">
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     @guest
-                    <a class="nav-link active" href="{{ route('login') }}">Login</a>
-                    <a class="nav-link active" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link active" href="{{ route('login') }}">{{__('layout.logIn')}}</a>
+                        <a class="nav-link active" href="{{ route('register') }}">{{__('layout.register')}}</a>
                     @else
+                    @csrf
+                        </form>
                     <a class="nav-link " href="">{{ Auth::user()->getName() }} - </a>
                     <a class="btn btn-success " href="{{ route('myaccount.orders') }}">
                         <i class="bi bi-cart-fill"></i>
                     </a>
                     <form id="logout" action="{{ route('logout') }}" method="POST">
                         <a role="button" class="btn btn-primary"
-                            onclick="document.getElementById('logout').submit();">Logout</a>
+                            onclick="document.getElementById('logout').submit();">{{__('layout.logOut')}}</a>
                         @csrf
                     </form>
                     @endguest
