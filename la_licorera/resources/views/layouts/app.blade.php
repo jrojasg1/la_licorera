@@ -25,23 +25,28 @@
                 <!--hacer que el simbolo para sacar la navbar solo aparesca cuando esta en pantalla pequeña -->
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            <div class="collapse navbar-collapse" >
                 <!--poniendo cosas en la navbar-->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('product.index') }}">{{__('layout.licor')}}</a>
+                    </li>
+                </ul>
                 <div class="navbar-nav ms-auto">
-                    <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     @guest
-                        <a class="nav-link active" href="{{ route('login') }}">{{__('layout.logIn')}}</a>
-                        <a class="nav-link active" href="{{ route('register') }}">{{__('layout.register')}}</a>
+                    <a class="nav-link active" href="{{ route('login') }}">{{__('layout.logIn')}}</a>
+                    <a class="nav-link active" href="{{ route('register') }}">{{__('layout.register')}}</a>
                     @else
                     @csrf
-                        </form>
                     <a class="nav-link " href="">{{ Auth::user()->getName() }} - </a>
-                    <a class="btn btn-success " href="{{ route('myaccount.orders') }}">
+                    <a class="btn btn-success mr-5" href="{{ route('myaccount.orders') }}">
                         <i class="bi bi-cart-fill"></i>
                     </a>
                     <form id="logout" action="{{ route('logout') }}" method="POST">
                         <a role="button" class="btn btn-primary"
-                            onclick="document.getElementById('logout').submit();">{{__('layout.logOut')}}</a>
+                            onclick="document.getElementById('logout').submit();">{{__('layout.logOut')}}
+                        </a>
                         @csrf
                     </form>
                     @endguest
