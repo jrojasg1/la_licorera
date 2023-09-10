@@ -2,36 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order; 
-use App\Models\Item;
+use App\Models\Product;
+use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\Product;
-use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    
-
-    public function index(): View
+    public function index(Request $request): View
     {
         $viewData = [];
-        $viewData["title"] = "Products - La Licorera";
-        $viewData["subtitle"] =  "Lista de licores";
-        $viewData["products"] = Product::all();
-        return view('product.index')->with("viewData", $viewData);
+        $viewData['title'] = __('product.title');
+        $viewData['subtitle'] = __('product.subtitle');
+        $sort = $request->query('sort');
+        if ($sort) {
+            $viewData['products'] = Product::orderBy('price', $sort)->get();
+        } else {
+            $viewData['products'] = Product::all();
+        }
+
+        //$viewData["products"] = Product::all();
+        return view('product.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id) : View
+    public function show(string $id): View
     {
         $viewData = [];
         $product = Product::findOrFail($id);
-        $viewData["title"] = $product->getName();
-        $viewData["subtitle"] =  $product->getName();
-        $viewData["product"] = $product;
-        return view('product.show')->with("viewData", $viewData);
+        $ingredients = $product->getIngredients();
+        $recipes = [];
+        foreach ($ingredients as $ingredient) {
+            $recipes[$ingredient->getRecipeId()] = Recipe::findOrFail($ingredient->getRecipeId());
+        }
+        $viewData['title'] = $product->getName();
+        $viewData['subtitle'] = $product->getName();
+        $viewData['product'] = $product;
+        $viewData['recipes'] = $recipes;
+        $viewData['user'] = $userId = auth()->user();
+
+        return view('product.show')->with('viewData', $viewData);
     }
-
-
-
 }

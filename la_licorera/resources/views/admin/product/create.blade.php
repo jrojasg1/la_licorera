@@ -16,7 +16,7 @@
 
         <form method="POST" action="{{ route('admin.product.store') }}" enctype="multipart/form-data">
             @csrf
-            <input type="text" class="form-control mb-3" placeholder="Enter name" name="name"
+            <input type="text" class="form-control mb-3" placeholder="{{__('productAdmin.name')}}" name="name"
                 value="{{ old('name') }}" />
             <select class="form-select mb-3" name="type" aria-label="Default select example">
                 <option selected>-{{__('productAdmin.type')}}</option>
@@ -25,18 +25,18 @@
                 <option value="tequila">{{__('productAdmin.tequila')}}</option>
                 <option value="ron">{{__('productAdmin.ron')}}</option>
             </select>
-            <input type="text" class="form-control mb-3" placeholder="Enter description" name="description"
+            <input type="text" class="form-control mb-3" placeholder="{{__('productAdmin.description')}}" name="description"
                 value="{{ old('description') }}" />
-            <input type="number" class="form-control mb-3" placeholder="Enter alcoholContent" name="alcoholContent"
+            <input type="number" class="form-control mb-3" placeholder="{{__('productAdmin.alcoholContent')}}" name="alcoholContent"
                 value="{{ old('alcohol_content') }}" />
-            <input type="number" class="form-control mb-3" placeholder="Enter price" name="price"
+            <input type="number" class="form-control mb-3" placeholder="{{__('productAdmin.price')}}" name="price"
                 value="{{ old('price') }}" />
-            <input type="number" class="form-control mb-3" placeholder="Enter stock" name="stock"
+            <input type="number" class="form-control mb-3" placeholder="{{__('productAdmin.stock')}}" name="stock"
                 value="{{ old('stock') }}" />
             <div class="row">
                 <div class="col">
+                <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">{{__('productAdmin.image')}}:</label>
                     <div class="mb-3 row">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Imagen: </label>
                         <div class="col-lg-10 col-md-6 col-sm-12">
                             <input class="form-control" type="file" name="image">
                         </div>

@@ -26,8 +26,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <!--poniendo cosas en la navbar-->
                 <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" href="{{ route('product.index') }}">{{__('layout.products')}}</a>
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     @guest
                         <a class="nav-link active" href="{{ route('login') }}">{{__('layout.logIn')}}</a>
@@ -36,9 +36,10 @@
                     @csrf
                         </form>
                     <a class="nav-link " href="">{{ Auth::user()->getName() }} - </a>
-                    <a class="btn btn-success " href="{{ route('myaccount.orders') }}">
+                    <a class="btn btn-success " href="{{ route('cart.index') }}">
                         <i class="bi bi-cart-fill"></i>
                     </a>
+                    <a class="btn btn-success" href="{{ route('myaccount.orders') }}">{{__('layout.orders')}}</a>
                     <form id="logout" action="{{ route('logout') }}" method="POST">
                         <a role="button" class="btn btn-primary"
                             onclick="document.getElementById('logout').submit();">{{__('layout.logOut')}}</a>
