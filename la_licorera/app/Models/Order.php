@@ -2,17 +2,15 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\hasMany;
 use Illuminate\Http\Request;
 
 class Order extends Model
 {
-            /**
+    /**
      * $this->atribute['id']-int-Primary key
      * this->atribute['state']-string- what step of the delivery proces the oreder is
      * this->atribute['total']-int-the the total value for this order
@@ -23,98 +21,93 @@ class Order extends Model
     public static function validate(Request $request)
     {
         $request->validate([
-        "total" => "required|numeric",
-        "user_id" => "required|exists:users,id", 
+            'total' => 'required|numeric',
+            'user_id' => 'required|exists:users,id',
         ]);
     }
 
-    public function getId():int
+    public function getId(): int
     {
         return $this->attributes['id'];
     }
 
-    
-    public function getState():string
+    public function getState(): string
     {
         return $this->attributes['state'];
     }
 
-    public function getTotal():int
+    public function getTotal(): int
     {
         return $this->attributes['total'];
     }
 
-    public function getDeliveryDate():string
+    public function getDeliveryDate(): string
     {
         return $this->attributes['delivery_date'];
-    } 
-    
-    public function getUserId():int
+    }
+
+    public function getUserId(): int
     {
         return $this->attributes['user_id'];
     }
 
-    public function getUser():User
+    public function getUser(): User
     {
         return $this->User;
     }
 
-    public function getCreatedAt():string
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt():string
+    public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }
 
-    public function setState(string $state):void
+    public function setState(string $state): void
     {
-        $this->attributes['state']=$state;
+        $this->attributes['state'] = $state;
     }
 
-    
-    public function setDeliveryDate(string $ddate):void
+    public function setDeliveryDate(string $ddate): void
     {
-        $this->attributes['delivery_date']=$ddate;
-    } 
-    
-    
-    public function setTotal(int $total):void
-    {
-        $this->attributes['total']=$total;
-    } 
-
-    public function setUserId(int $uid):void
-    {
-        $this->attributes['user_id']=$uid;
+        $this->attributes['delivery_date'] = $ddate;
     }
 
-    
-    public function setUser(User $user):void
+    public function setTotal(int $total): void
     {
-        $this->User=$user;
+        $this->attributes['total'] = $total;
     }
 
-    public function user():BelongsTo
+    public function setUserId(int $uid): void
+    {
+        $this->attributes['user_id'] = $uid;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->User = $user;
+    }
+
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function items():HasMany
+    public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }
 
-    public function getItems():Collection
+    public function getItems(): Collection
     {
         return $this->Items;
     }
 
     public function setItems(Collection $Items)
     {
-        $this->Items=$Items;
+        $this->Items = $Items;
     }
-
 }

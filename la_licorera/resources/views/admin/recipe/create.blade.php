@@ -19,7 +19,7 @@
                                 <input type="text" class="form-control mb-2" placeholder="{{__('recipeAdmin.name')}}" name="name" value="{{ old('name') }}" />
                                 <input type="text" class="form-control mb-2" placeholder="{{__('recipeAdmin.difficulty')}}" name="difficulty" value="{{ old('difficulty') }}" />
                                 <p>{{__('recipeAdmin.recipe')}}</p>
-                                <textarea row="8" cols="33" type="text" class="form-control mb-2" placeholder="" name="instructions" value="{{ old('instructions') }}" ></textarea>
+                                <textarea row="8" cols="33" type="text" class="form-control mb-2"  name="instructions" value="{{ old('instructions') }}" ></textarea>
                                 <select name="product1" id="product1">
                                     <option value=""> {{__('recipeAdmin.product1')}} </option>
                                     @foreach($viewData["products"] as  $prod)

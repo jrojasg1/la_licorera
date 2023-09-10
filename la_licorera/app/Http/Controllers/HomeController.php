@@ -1,20 +1,16 @@
-<?php 
-    namespace App\Http\Controllers;
+<?php
 
-    use Illuminate\View\View; //que es Illuminate
-    use App\Models\Product;
+namespace App\Http\Controllers;
 
-    class HomeController extends Controller{
-        public function index():View{
-           /* $viewData=[];
-            $viewData['title']=__('home.title');
-            return view('home.index')->with('viewData',$viewData);*/
+use Illuminate\View\View; //que es Illuminate
 
-            $viewData = [];
-            $viewData['title']=__('home.title');
-            $viewData["products"] = Product::all()->take(4);
-            return view('home.index')->with("viewData", $viewData);
-        }
+class HomeController extends Controller
+{
+    public function index(): View
+    {
+        $viewData = [];
+        $viewData['title'] = __('home.title');
 
-        
+        return view('home.index')->with('viewData', $viewData);
     }
+}

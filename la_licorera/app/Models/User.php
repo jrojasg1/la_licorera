@@ -3,12 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\hasMany;
 
 class User extends Authenticatable
 {
@@ -48,7 +48,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
     /**
      * $this->atribute['id']-int-Primary key
      * this->atribute['email']-string-the user's email
@@ -59,128 +58,121 @@ class User extends Authenticatable
      * this->atribute['role']-string-if the user is an admin or a end user
      * this->atribute['created_at']-timestamp-when was this user created
      * this->atribute['updated_at']-timestamp-when was this user's profile last updated
-     * this->recipes-Recipes[]-the recipes a given user has uploaded 
+     * this->recipes-Recipes[]-the recipes a given user has uploaded
      * this->orders-order[]-the order a given user has made
      */
-    public function getId():int
+    public function getId(): int
     {
         return $this->attributes['id'];
     }
 
-    
-    public function getName():string
+    public function getName(): string
     {
         return $this->attributes['name'];
     }
 
-    
-    public function getEmail():string
+    public function getEmail(): string
     {
         return $this->attributes['email'];
     }
 
-    
-    public function getPassword():string
+    public function getPassword(): string
     {
         return $this->attributes['password'];
     }
 
-    public function getAddresses():json
+    public function getAddresses(): json
     {
         return $this->attributes['addresses'];
     }
 
-    public function getAddress(string $key):string
+    public function getAddress(string $key): string
     {
-        return json_decode($key,true);
+        return json_decode($key, true);
     }
 
-    
-    public function getWallet():int
+    public function getWallet(): int
     {
         return $this->attributes['wallet'];
     }
 
-    public function getRole():string
+    public function getRole(): string
     {
         return $this->attributes['role'];
     }
 
-        
-    public function getCreatedAt():string
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function getUpdatedAt():string
+    public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }
 
-
     public function setName(string $name)
     {
-        $this->attributes['name']=$name;
+        $this->attributes['name'] = $name;
     }
 
-    
-    public function setEmail(string $email):void
+    public function setEmail(string $email): void
     {
-        $this->attributes['email']=$email;
+        $this->attributes['email'] = $email;
     }
 
-    
-    public function setPassword(string $password):void
+    public function setPassword(string $password): void
     {
-        $this->attributes['password']=$password;
+        $this->attributes['password'] = $password;
     }
 
-    public function setAddresses(json $addresses):void
+    public function setAddresses(json $addresses): void
     {
         $this->attributes['addresses'];
     }
 
-    public function setAddress(json $address):void
+    public function setAddress(json $address): void
     {
         json_encode($address);
     }
-    
-    public function setWallet(int $wallet):void{
-        $this->attributes['wallet']=$wallet;
+
+    public function setWallet(int $wallet): void
+    {
+        $this->attributes['wallet'] = $wallet;
     }
 
-    public function setRole(string $role):void{
-        $this->attributes['role']=$role;
+    public function setRole(string $role): void
+    {
+        $this->attributes['role'] = $role;
     }
 
-    public function recipes():HasMany
+    public function recipes(): HasMany
     {
         return $this->hasMany(Recipe::class);
     }
 
-    public function getRecipes():Collection
+    public function getRecipes(): Collection
     {
         return $this->Recipes;
     }
 
     public function setRecipes(Collection $Recipes)
     {
-        $this->Recipes=$Recipes;
+        $this->Recipes = $Recipes;
     }
 
-    
-    public function Orders():HasMany
+    public function Orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }
 
-    public function getOrder():Collection
+    public function getOrder(): Collection
     {
         return $this->Orders;
     }
 
     public function setOrders(Collection $Orders)
     {
-        $this->Orders=$Orders;
+        $this->Orders = $Orders;
     }
 }

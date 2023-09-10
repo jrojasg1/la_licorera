@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
     return[
         'title'=>'LaLicorera',
         'subtitle'=>'Algunos de nuestros licores',
@@ -7,3 +8,11 @@
         'ver'=>'Ver',
         
     ];
+=======
+
+return [
+    'title' => 'LaLicorera',
+    'slogan' => 'Bienvenido ',
+
+];
+>>>>>>> 3d6e8e62623668e84d95f35de3daa844383a0fa0

@@ -40,9 +40,14 @@
                     @else
                     @csrf
                     <a class="nav-link " href="">{{ Auth::user()->getName() }} - </a>
+<<<<<<< HEAD
                     <a class="btn btn-success mr-5" href="{{ route('myaccount.orders') }}">
+=======
+                    <a class="btn btn-success " href="{{ route('cart.index') }}">
+>>>>>>> 3d6e8e62623668e84d95f35de3daa844383a0fa0
                         <i class="bi bi-cart-fill"></i>
                     </a>
+                    <a class="btn btn-success" href="{{ route('myaccount.orders') }}">{{__('layout.orders')}}</a>
                     <form id="logout" action="{{ route('logout') }}" method="POST">
                         <a role="button" class="btn btn-primary"
                             onclick="document.getElementById('logout').submit();">{{__('layout.logOut')}}
