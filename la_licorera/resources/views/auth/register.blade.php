@@ -40,6 +40,14 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control " name="address" value="{{ old('address') }}" required >
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="wallet" class="col-md-4 col-form-label text-md-end">{{ __('Wallet') }}</label>
                             
                             <div class="col-md-6">

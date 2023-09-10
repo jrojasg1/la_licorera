@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\hasMany;
+use Illuminate\Http\Request;
 
 class Order extends Model
 {
@@ -19,6 +20,13 @@ class Order extends Model
      * this->User-User-who made this order
      * this->Item-Item[]-relation between the oreder and the producte it has
      */
+    public static function validate(Request $request)
+    {
+        $request->validate([
+        "total" => "required|numeric",
+        "user_id" => "required|exists:users,id", 
+        ]);
+    }
 
     public function getId():int
     {
@@ -29,6 +37,11 @@ class Order extends Model
     public function getState():string
     {
         return $this->attributes['state'];
+    }
+
+    public function getTotal():int
+    {
+        return $this->attributes['total'];
     }
 
     public function getDeliveryDate():string
@@ -94,7 +107,7 @@ class Order extends Model
         return $this->hasMany(Item::class);
     }
 
-    public function getItem():Collection
+    public function getItems():Collection
     {
         return $this->Items;
     }

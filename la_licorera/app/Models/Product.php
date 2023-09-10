@@ -150,7 +150,7 @@ class Product extends Model
         return $this->hasMany(Item::class);
     }
 
-    public function getItem():Collection
+    public function getItems():Collection
     {
         return $this->Items;
     }
@@ -159,5 +159,15 @@ class Product extends Model
     {
         $this->Items=$Items;
     }
+
+    public static function sumPricesByQuantities($products, $productsInSession): int
+    { 
+        $total = 0; 
+        foreach ($products as $product) { 
+        $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]); 
+        } 
+        
+        return $total; 
+    } 
 
 }

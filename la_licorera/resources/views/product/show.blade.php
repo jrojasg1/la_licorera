@@ -20,8 +20,25 @@
                 <li class="list-group-item">Precio: {{ $viewData["product"]->getPrice() }}</li>
                 <li class="list-group-item">Disponibles: {{ $viewData["product"]->getStock() }}</li>
             </ul>
+            <p class="card-text">
+            <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}">
+                <div class="row">
+                    @csrf
+                    <div class="col-auto">
+                        <div class="input-group col-auto">
+                            <div class="input-group-text">Quantity</div>
+                            <input type="number" min="1"  class="form-control quantity-input" name="amount"
+                                value="1">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn bg-primary text-white" type="submit">Add to cart</button>
+                    </div>
+                </div>
+            </form>
+            </p>
             <div class="card-body">
-               
+
             </div>
         </div>
     </div>

@@ -8,6 +8,7 @@ use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 
 class Item extends Model
 {
@@ -18,7 +19,16 @@ class Item extends Model
      * this->Order-Order-the order this items are going in
      * this->Product-Product- the product this item is "representing"
      */
-
+    public static function validate(Request $request)
+    {
+        $request->validate([
+            "subtotal" => "required|numeric|gt:0",
+            "amount" => "required|numeric|gt:0",
+            "product_id" => "required|exists:products,id", 
+            "order_id" => "required|exists:orders,id", 
+        ]);
+    }
+       
     public function setAmount(int $amount):void
     {
         $this->attributes['amount']=$amount;
@@ -36,6 +46,21 @@ class Item extends Model
     public function setProduct(Product $product):void
     {
         $this->Product=$product;
+    }
+
+    public function getId():int
+    {
+       return $this->attributes['id'];
+    }
+
+    public function getAmount():int
+    {
+        return $this->attributes['amount'];
+    }
+
+    public function getSubTotal():int
+    {
+        return $this->attributes['subtotal'];
     }
 
     public function product():BelongsTo

@@ -4,7 +4,7 @@
         'slogan'=>'Bienvenido a la aplicacion',
         'copyright'=>'Derechos de autor',
         'authors'=>'Pablo Micolta Y Julian Rojas',
-        'products'=>'- Admin - Productos',
+        'products'=>'Productos',
         'home'=>'Admin - Pagina principal',
         'panel'=>'Panel  de Admin ',
         'back'=>'Volver a la pagina principal',

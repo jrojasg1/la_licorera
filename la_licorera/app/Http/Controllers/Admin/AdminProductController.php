@@ -54,7 +54,7 @@ class AdminProductController extends Controller
             $newProduct->save(); 
             } 
            
-        return redirect()->route('admin.home.index');
+        return redirect()->route('admin.product.index');
     } 
 
 

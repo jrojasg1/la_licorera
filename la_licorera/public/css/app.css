@@ -1,0 +1,11 @@
+.products {
+
+    box-shadow: 0 5px 5px rgba(33,33,33,.2); 
+
+}
+
+.products:hover {
+
+    box-shadow: 0 50px 35px rgba(0, 0, 0, 0.2); 
+
+}

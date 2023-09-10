@@ -1,14 +1,63 @@
 <?php 
     namespace App\Http\Controllers;
+
+
     use Illuminate\View\View;
-    use Illuminate\View\Request;
-    use Illuminate\View\RedirectResponse;
+    use Illuminate\Http\Request;
+    use Illuminate\Http\RedirectResponse;
     use App\Models\User;
     use App\Models\Recipe;
-    class RecipeController extends Controller{
+    use App\Models\Product;
+    use App\Models\Order; 
+    use App\Models\Item; 
+    use Illuminate\Support\Facades\Auth;
+
+class CartController extends Controller
+{
+    public function purchase(Request $request)
+    { 
+        $productsInSession = $request->session()->get("cart_product_data"); 
+        if ($productsInSession) { 
+            $userId = Auth::user()->getId(); 
+            $order = new Order(); 
+            $order->setUserId($userId); 
+            $order->setTotal(0); 
+            $order->save(); 
+            
+            $total = 0; 
+            $productsInCart = Product::findMany(array_keys($productsInSession)); 
+            foreach ($productsInCart as $product) { 
+            $amount = $productsInSession[$product->getId()]; 
+            $item = new Item(); 
+            $item->setAmount($amount); 
+            $item->setSubtotal($product->getPrice()); 
+            $item->setProductId($product->getId()); 
+            $item->setOrderId($order->getId()); 
+            $item->save(); 
+            $total = $total + ($product->getPrice()*$amount); 
+            } 
+            $order->setTotal($total); 
+            $order->setState("Pendiente"); 
+            $order->save(); 
+            $newBalance = Auth::user()->getWallet() - $total; 
+            Auth::user()->setWallet($newBalance); 
+            Auth::user()->save(); 
+            
+            $request->session()->forget('cart_product_data'); 
+            
+            $viewData = []; 
+            $viewData["title"] = "Purchase - Online Store"; 
+            $viewData["subtitle"] = "Purchase Status"; 
+            $viewData["order"] = $order; 
+            return view('cart.purchase')->with("viewData", $viewData); 
+        } else { 
+            return redirect()->route('cart.index'); 
+        } 
+    } 
+
         public function index(Request $request):View
         {
-            $products=Product::all();
+           /* $products=Product::all();
             $cartProducts=[];
             $cartProductData=$request->session()->get('cart_product_data');
             if($cartProductData){
@@ -23,21 +72,39 @@
             $viewData['title']='Cart';
             $viewData['subtitle']='shoping cart';
             $viewData['cartProducts']=$cartProducts;
-            return view('cart.cart')->with('viewData',$viewData);
+            return view('cart.cart')->with('viewData',$viewData);*/
+            $total = 0;
+            $productsInCart = [];
+            $productsInSession = $request->session()->get("cart_product_data");
+            if ($productsInSession) {
+            $productsInCart = Product::findMany(array_keys($productsInSession));
+            $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
+            }
+            $viewData = [];
+            $viewData["title"] = "Cart - Online Store";
+            $viewData["subtitle"] = "Shopping Cart";
+            $viewData["total"] = $total;
+            $viewData["products"] = $productsInCart;
+            
+            return view('cart.index')->with("viewData", $viewData);
         }
     
-        public function add(string $id, int $amount,Request $request):RedirectResponse
+        public function add(string $id,Request $request): RedirectResponse
         {
             $cartProductData=$request->session()->get('cart_product_data');
-            $cartProductData[$id]=['amount'=>$amount];
+            $amount=$request->input('amount');
+            $cartProductData[$id]=intval($amount);
             $request->session()->put('cart_product_data',$cartProductData);
-            return back();
+
+            return redirect()->route('cart.index');
         }
+
         public function removeAll(Request $request):RedirectResponse
         {
             $request->session()->forget('cart_product_data');
-            return back();
+            return redirect()->route('cart.index');
         }
+
         public function buy(Request $request):RedirectResponse
         {
             $cartProductData=$request->session()->get('cart_product_data');
@@ -57,6 +124,6 @@
                 $newItem->save();
             }
             
-            return back();
+            return redirect()->route('cart.index');
         }
     }

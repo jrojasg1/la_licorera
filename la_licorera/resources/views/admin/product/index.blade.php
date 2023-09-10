@@ -5,7 +5,11 @@
     <div class="card-header">
         {{__('productAdmin.manage')}}
     </div>
+
     <div class="card-body">
+        <a class="btn btn-success mb-3 shadow" href="{{ route('admin.product.create') }}">
+            <i class="bi bi-plus-lg"></i>
+        </a>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -21,18 +25,16 @@
                     <td>{{ $product->getId() }}</td>
                     <td>{{ $product->getName() }}</td>
                     <td>
-                        {{__('productAdmin.edit')}}
-                        <a class="btn btn-primary" href="{{route('admin.product.edit', ['id'=> $product->getId()])}}">
+                        <a class="btn btn-primary shadow" href="{{route('admin.product.edit', ['id'=> $product->getId()])}}">
 
                             <i class="bi-pencil"></i>
                         </a>
                     </td>
                     <td>
-                        {{__('productAdmin.delete')}}
                         <form action="{{ route('admin.product.delete', $product->getId())}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger">
+                            <button class="btn btn-danger shadow">
                                 <i class="bi-trash"></i>
                             </button>
                         </form>
