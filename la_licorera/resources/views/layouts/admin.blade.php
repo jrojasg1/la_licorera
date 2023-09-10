@@ -10,8 +10,10 @@
         crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet"
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!--traer cosas de boostrap (el stylesheet)-->
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" /> <!--traer estilos de la carpeta de css-->
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+    <!--traer estilos de la carpeta de css-->
     <title>@yield('title',__('layoutAdmin.title'))</title>
 </head>
 
@@ -33,19 +35,24 @@
                 </a>
                 <hr />
                 <ul class="nav flex-column">
-                    <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">{{__('layoutAdmin.home')}}</a></li>
-                    <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">{{__('layoutAdmin.products')}}</a></li>
+                    <li><a href="{{ route('admin.home.index') }}"
+                            class="nav-link text-white">{{__('layoutAdmin.home')}}</a></li>
+                    <li><a href="{{ route('admin.product.index') }}"
+                            class="nav-link text-white">{{__('layoutAdmin.products')}}</a></li>
 
                     @guest
-                        <li><a class="nav-link active" href="{{ route('login') }}">{{__('layoutAdmin.logIn')}}</a></li>
-                        <li><a class="nav-link active" href="{{ route('register') }}">{{__('layoutAdmin.register')}}</a></li>
+                    <li><a class="nav-link active" href="{{ route('login') }}">{{__('layoutAdmin.logIn')}}</a></li>
+                    <li><a class="nav-link active" href="{{ route('register') }}">{{__('layoutAdmin.register')}}</a>
+                    </li>
                     @else
-                        <li><a class="nav-link text-white" href="{{ route('admin.recipe.create') }}">{{__('layoutAdmin.recipe')}}</a></li>
-                        <form id="logout" action="{{ route('logout') }}" method="POST">
+                    <li><a class="nav-link text-white"
+                            href="{{ route('admin.recipe.create') }}">{{__('layoutAdmin.recipe')}}</a></li>
+                    <form id="logout" action="{{ route('logout') }}" method="POST">
                         <li><a role="button" class="nav-link active"
-                        onclick="document.getElementById('logout').submit();">{{__('layoutAdmin.logOut')}}</a></li>
-                    @csrf
-                        </form>
+                                onclick="document.getElementById('logout').submit();">{{__('layoutAdmin.logOut')}}</a>
+                        </li>
+                        @csrf
+                    </form>
                     @endguest
                     <li>
                         <a href="#" class="mt-2 btn bg-primary text-white">{{__('layoutAdmin.back')}}</a>
@@ -63,29 +70,29 @@
                 </div>
             </div>
         </div>
-    </nav>
-</br>
-    <header class = "masthead bg-primary text-white text-center py-4">
-        <div class="container d-flex align-items-center flex-column">
-            <h2>@yield('subtitle',__('layoutAdmin.slogan'))</h2>
-        </div>  
-    </header>
-    <!--header-->
-    <div class="container py-4">@yield('content')</div>
-    <!--footer-->
-    <div class="copyright py-4 text-center">
-        <div class="container">
-            <small> {{__('layoutAdmin.copyright')}} -
-                <a class="text-reset fw-bold text-decoration-none" target="_blank">
-                {{__('layoutAdmin.authors')}}
-                </a>
-            </small>
-        </div>
-        <!-- footer -->
-       
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous">
-        </script>
+        </nav>
+        </br>
+        <header class="masthead bg-primary text-white text-center py-4">
+            <div class="container d-flex align-items-center flex-column">
+                <h2>@yield('subtitle',__('layoutAdmin.slogan'))</h2>
+            </div>
+        </header>
+        <!--header-->
+        <div class="container py-4">@yield('content')</div>
+        <!--footer-->
+        <div class="copyright py-4 text-center">
+            <div class="container">
+                <small> {{__('layoutAdmin.copyright')}} -
+                    <a class="text-reset fw-bold text-decoration-none" target="_blank">
+                        {{__('layoutAdmin.authors')}}
+                    </a>
+                </small>
+            </div>
+            <!-- footer -->
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+                crossorigin="anonymous">
+            </script>
 
     </body>
 

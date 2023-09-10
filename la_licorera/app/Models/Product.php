@@ -46,7 +46,7 @@ class Product extends Model
     
     public function getName():string
     {
-        return $this->attributes['name'];
+        return strtoupper($this->attributes['name']);
     }
 
     public function getType():string
@@ -70,6 +70,11 @@ class Product extends Model
     public function getPrice():int
     {
         return $this->attributes['price'];
+    }
+
+    public function getStock():int
+    {
+        return $this->attributes['stock'];
     }
 
     public function getImage():string
@@ -120,7 +125,7 @@ class Product extends Model
     }
 
     
-    public function setImage(int $image):void{
+    public function setImage(string $image):void{
         $this->attributes['image']=$image;
     }
 
