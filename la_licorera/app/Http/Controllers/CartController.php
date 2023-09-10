@@ -20,6 +20,7 @@ class CartController extends Controller
         if ($productsInSession) { 
             $userId = Auth::user()->getId(); 
             $order = new Order(); 
+            $order->setState('');
             $order->setUserId($userId); 
             $order->setTotal(0); 
             $order->save(); 
@@ -27,14 +28,18 @@ class CartController extends Controller
             $total = 0; 
             $productsInCart = Product::findMany(array_keys($productsInSession)); 
             foreach ($productsInCart as $product) { 
-            $amount = $productsInSession[$product->getId()]; 
-            $item = new Item(); 
-            $item->setAmount($amount); 
-            $item->setSubtotal($product->getPrice()); 
-            $item->setProductId($product->getId()); 
-            $item->setOrderId($order->getId()); 
-            $item->save(); 
-            $total = $total + ($product->getPrice()*$amount); 
+                $amount = $productsInSession[$product->getId()]; 
+                $item = new Item(); 
+                $item->setAmount($amount); 
+                $item->setSubtotal($product->getPrice()); 
+                $item->setProductId($product->getId()); 
+                $item->setOrderId($order->getId()); 
+                $item->save(); 
+                $total = $total + ($product->getPrice()*$amount); 
+                $currentStock=$product->getStock();
+                $newStock=$currentStock - $amount;
+                $product->setStock($newStock);
+                $product->save();
             } 
             $order->setTotal($total); 
             $order->setState("Pendiente"); 
@@ -102,28 +107,6 @@ class CartController extends Controller
         public function removeAll(Request $request):RedirectResponse
         {
             $request->session()->forget('cart_product_data');
-            return redirect()->route('cart.index');
-        }
-
-        public function buy(Request $request):RedirectResponse
-        {
-            $cartProductData=$request->session()->get('cart_product_data');
-            $newOrder = new Order();
-            $newOrder->setState('enviando');
-            $newOrder->setDeliveryDate('??');
-            $newOrder->setTotal(5);
-            $userId=auth()->user()->id;
-            $newOrder->setUserId($userId);
-            $newOrder->save();
-            foreach($cartProductData as $productId){
-                $newItem=new Item();
-                $newItem->setProductId($productId);
-                $newItem->setOrderId($newOrder->getId());
-                $newItem->setAmount(1);
-                $newItem->setSubtotal(1);
-                $newItem->save();
-            }
-            
             return redirect()->route('cart.index');
         }
     }
