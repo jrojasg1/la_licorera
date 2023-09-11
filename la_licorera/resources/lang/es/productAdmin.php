@@ -15,7 +15,7 @@ return [
     'price' => 'Precio',
     'stock' => 'Cantidad_en_bodega',
     'description' => 'Descripcion',
-    'delete' => 'Borrar',
+    'stock' => 'Disponible',
     'edit' => 'Editar',
     'image' => 'Imagen',
     'submit' => 'Enviar',

@@ -88,10 +88,4 @@ class AdminProductController extends Controller
         return redirect()->route('admin.product.index');
     }
 
-    public function delete(string $id): RedirectResponse
-    {
-        Product::destroy($id);
-
-        return redirect()->route('admin.product.index');
-    }
 }

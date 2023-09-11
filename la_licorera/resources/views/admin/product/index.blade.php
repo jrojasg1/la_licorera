@@ -15,8 +15,8 @@
                 <tr>
                     <th scope="col">{{__('productAdmin.id')}}</th>
                     <th scope="col">{{__('productAdmin.name')}}</th>
+                    <th scope="col">{{__('productAdmin.stock')}}</th>
                     <th scope="col">{{__('productAdmin.edit')}}</th>
-                    <th scope="col">{{__('productAdmin.delete')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,21 +24,15 @@
                 <tr>
                     <td>{{ $product->getId() }}</td>
                     <td>{{ $product->getName() }}</td>
+                    <td> {{ $product->getStock() }}</td>
                     <td>
-                        <a class="btn btn-primary shadow" href="{{route('admin.product.edit', ['id'=> $product->getId()])}}">
+                        <a class="btn btn-primary shadow"
+                            href="{{route('admin.product.edit', ['id'=> $product->getId()])}}">
 
                             <i class="bi-pencil"></i>
                         </a>
                     </td>
-                    <td>
-                        <form action="{{ route('admin.product.delete', $product->getId())}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger shadow">
-                                <i class="bi-trash"></i>
-                            </button>
-                        </form>
-                    </td>
+
                 </tr>
                 @endforeach
             </tbody>
