@@ -20,29 +20,37 @@
 </head>
 
 <body>
-    <div class="row g-0">
+    <div class="row g-0 flex-nowrap">
         <!-- sidebar -->
-        <div class="p-3 col fixed text-white bg-dark">
+        <div class="p-3 col-auto col-md-2 min-vh-100 fixed text-white bg-dark justify-content-between">
             <a href="#" class="text-white text-decoration-none">
                 <span class="fs-4">{{__('layoutAdmin.panel')}}</span>
             </a>
             <hr />
-            <ul class="nav flex-column">
-                <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">{{__('layoutAdmin.home')}}</a>
+            <ul class="nav flex-column fs-5">
+                <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white "><i class="bi bi-house"></i>
+                        {{__('layoutAdmin.home')}}</a>
                 </li>
-                <li><a href="{{ route('admin.product.index') }}"
-                        class="nav-link text-white">{{__('layoutAdmin.products')}}</a></li>
+                <li>
+                    <a href="{{ route('admin.product.index') }}" class="nav-link text-white"> <i
+                            class="bi bi-cup-straw"></i> {{__('layoutAdmin.products')}}</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.order.index') }}" class="nav-link text-white"> <i
+                            class="bi bi-cup-straw"></i> {{__('layoutAdmin.orders')}}</a>
+                </li>
 
                 @guest
                 <li><a class="nav-link active" href="{{ route('login') }}">{{__('layoutAdmin.logIn')}}</a></li>
                 <li><a class="nav-link active" href="{{ route('register') }}">{{__('layoutAdmin.register')}}</a>
                 </li>
                 @else
-                <li><a class="nav-link text-white"
-                        href="{{ route('admin.recipe.create') }}">{{__('layoutAdmin.recipe')}}</a></li>
+                <li><a class="nav-link text-white" href="{{ route('admin.recipe.create') }}"> <i
+                            class="bi bi-basket3"></i> {{__('layoutAdmin.recipe')}}</a></li>
                 <form id="logout" action="{{ route('logout') }}" method="POST">
-                    <li><a role="button" class="nav-link active"
-                            onclick="document.getElementById('logout').submit();">{{__('layoutAdmin.logOut')}}</a>
+                    <li><a role="button" class="nav-link active "
+                            onclick="document.getElementById('logout').submit();"><i class="bi bi-box-arrow-left"></i>
+                            {{__('layoutAdmin.logOut')}}</a>
                     </li>
                     @csrf
                 </form>

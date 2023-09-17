@@ -81,14 +81,14 @@ class User extends Authenticatable
         return $this->attributes['password'];
     }
 
-    public function getAddresses(): json
+    public function getAddresses(): string
     {
         return $this->attributes['addresses'];
     }
 
     public function getAddress(string $key): string
     {
-        return json_decode($key, true);
+        return $this->attributes['address'];
     }
 
     public function getWallet(): int
