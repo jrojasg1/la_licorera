@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Order;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\View\View;
 
 class AdminOrderController extends Controller
@@ -14,10 +13,8 @@ class AdminOrderController extends Controller
         $viewData = [];
         $viewData['title'] = __('order.title');
         $viewData['subtitle'] = __('order.subtitle');
-        $viewData['orders'] = Order::with(['items.product'])->where('user_id', Auth::user()->getId())->get();
+        $viewData['orders'] = Order::with(['items.product'])->get();
 
         return view('admin.order.index')->with('viewData', $viewData);
     }
 }
-
-

@@ -40,7 +40,9 @@
                     @else
                     @csrf
                     <a class="nav-link " href=""><h5>{{ Auth::user()->getName() }} - {{ Auth::user()->getWallet() }} {{__('layout.wallet')}} </h5></a>
-                    <a class="btn btn-success mr-5" href="{{ route('myaccount.orders') }}">
+                    <a class="btn btn-success mr-5" href="{{ route('myaccount.orders') }}">{{__('layout.order')}}</a>
+                    
+                    <a class="btn btn-success mr-5" href="{{ route('cart.index') }}">
                         <i class="bi bi-cart-fill"></i>
                     </a>
                     

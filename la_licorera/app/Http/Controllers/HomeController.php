@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View; //que es Illuminate
-use App\Models\Product;
+use App\Models\Product; //que es Illuminate
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -12,6 +12,7 @@ class HomeController extends Controller
         $viewData = [];
         $viewData['title'] = __('home.title');
         $viewData['products'] = Product::all()->take(4);
+
         return view('home.index')->with('viewData', $viewData);
     }
 }
