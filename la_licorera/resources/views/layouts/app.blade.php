@@ -45,7 +45,9 @@
                     <a class="btn btn-success mr-5" href="{{ route('cart.index') }}">
                         <i class="bi bi-cart-fill"></i>
                     </a>
-                    
+                    @if (Auth::user()->getRole()== 'admin')
+                        <a class="btn btn-success mr-5" href="{{ route('admin.home.index') }}">{{__('layout.admin')}}</a>
+                    @endif
                     <form id="logout" action="{{ route('logout') }}" method="POST">
                         <a role="button" class="btn btn-primary"
                             onclick="document.getElementById('logout').submit();">{{__('layout.logOut')}}

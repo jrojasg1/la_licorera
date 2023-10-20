@@ -46,7 +46,7 @@
                     &nbsp;
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Editar</button>
+            <button type="submit" class="btn btn-success">{{__('productAdmin.edit')}}</button>
         </form>
     </div>
 </div>

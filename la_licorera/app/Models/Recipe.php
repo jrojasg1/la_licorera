@@ -11,11 +11,13 @@ use Illuminate\Http\Request;
 class Recipe extends Model
 {
     /**
-     * $this->atribute['id']-int-Primary key
-     * this->atribute['instructions']-string-what must the user do to make this recipe
-     * this->atribute['difficulty']-int- how hard is this recipe according to the person tha tmade it
-     * this->User-User-the one that uploaded this recipe
-     * this->ingridients-Ingridient[]-what products are needed for this recipe
+     * $this->atribute['id'] - int -Primary key
+     * $this->atribute['name']- string - Nombre de la receta
+     * this->atribute['instructions'] - string -what must the user do to make this recipe
+     * this->atribute['difficulty'] - int - how hard is this recipe according to the person tha tmade it
+     * this->User - User - the one that uploaded this recipe
+     * this->atribute['user_id'] - int - the id of the user that made this recipe
+     * this->ingridients - Ingridient[] - what products are needed for this recipe
      */
     public static function validate(Request $request): void
     {
@@ -54,6 +56,11 @@ class Recipe extends Model
     public function getIngredients(): Collection
     {
         return $this->Ingredients;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
     }
 
     public function setName(string $name): void

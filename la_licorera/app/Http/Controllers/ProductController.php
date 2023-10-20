@@ -20,8 +20,6 @@ class ProductController extends Controller
         } else {
             $viewData['products'] = Product::all();
         }
-
-        //$viewData["products"] = Product::all();
         return view('product.index')->with('viewData', $viewData);
     }
 

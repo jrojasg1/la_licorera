@@ -15,7 +15,7 @@ class Item extends Model
      * this->Order-Order-the order this items are going in
      * this->Product-Product- the product this item is "representing"
      */
-    public static function validate(Request $request)
+    public static function validate(Request $request):void
     {
         $request->validate([
             'subtotal' => 'required|numeric|gt:0',

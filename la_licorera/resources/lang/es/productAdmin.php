@@ -20,5 +20,6 @@ return [
     'image' => 'Imagen',
     'submit' => 'Enviar',
     'create' => 'Crear producto',
+    'edit' => 'Editar',
 
 ];

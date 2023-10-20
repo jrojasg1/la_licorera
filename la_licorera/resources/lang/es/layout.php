@@ -13,4 +13,5 @@ return [
     'logIn' => 'Iniciar session',
     'register' => 'Registrarse',
     'logOut' => 'Cerrar sesión',
+    'admin' => 'Admin',
 ];

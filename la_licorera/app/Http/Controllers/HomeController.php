@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product; //que es Illuminate
+use App\Models\Product; 
 use Illuminate\View\View;
 
 class HomeController extends Controller

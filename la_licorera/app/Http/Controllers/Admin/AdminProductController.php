@@ -22,7 +22,7 @@ class AdminProductController extends Controller
 
     public function create(): View
     {
-        $viewData = []; //to be sent to the view
+        $viewData = []; 
         $viewData['title'] = __('productAdmin.create');
 
         return view('admin.product.create')->with('viewData', $viewData);
