@@ -11,12 +11,14 @@ use Illuminate\Http\Request;
 class Recipe extends Model
 {
     /**
-     * $this->atribute['id'] - int -Primary key
-     * $this->atribute['name']- string - Nombre de la receta
-     * this->atribute['instructions'] - string -what must the user do to make this recipe
-     * this->atribute['difficulty'] - int - how hard is this recipe according to the person tha tmade it
-     * this->User - User - the one that uploaded this recipe
+     * $this->atribute['id'] - int - Primary key
+     * $this->atribute['name'] - string - Nombre de la receta
+     * this->atribute['instructions'] - string - what must the user do to make this recipe
+     * this->atribute['difficulty'] - int - how hard is this recipe according to the person that made it
+     * this->atribute['created_at'] - timestamp - when was this recipe created
+     * this->atribute['updated_at'] - timestamp - when was this recipe's information last updated
      * this->atribute['user_id'] - int - the id of the user that made this recipe
+     * this->user - User - the one that uploaded this recipe
      * this->ingridients - Ingridient[] - what products are needed for this recipe
      */
     public static function validate(Request $request): void
@@ -38,14 +40,29 @@ class Recipe extends Model
         return $this->attributes['name'];
     }
 
+    public function setName(string $name): void
+    {
+        $this->attributes['name'] = $name;
+    }
+
     public function getInstructions(): string
     {
         return $this->attributes['instructions'];
     }
 
+    public function setIntructions(string $Instr)
+    {
+        $this->attributes['instructions'] = $Instr;
+    }
+
     public function getDifficulty(): string
     {
         return $this->attributes['difficulty'];
+    }
+
+    public function setDifficulty(string $dif): void
+    {
+        $this->attributes['difficulty'] = $dif;
     }
 
     public function ingredients(): HasMany
@@ -58,29 +75,14 @@ class Recipe extends Model
         return $this->Ingredients;
     }
 
-    public function getUserId(): int
-    {
-        return $this->attributes['user_id'];
-    }
-
-    public function setName(string $name): void
-    {
-        $this->attributes['name'] = $name;
-    }
-
-    public function setDifficulty(string $dif): void
-    {
-        $this->attributes['difficulty'] = $dif;
-    }
-
-    public function setIntructions(string $Instr)
-    {
-        $this->attributes['instructions'] = $Instr;
-    }
-
     public function setIngredients(Collection $Ingredients)
     {
         $this->Ingredients = $Ingredients;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
     }
 
     public function setUserId(int $uid): void

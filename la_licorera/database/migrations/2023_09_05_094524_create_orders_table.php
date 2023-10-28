@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('delivery_date')->nullable();
-            //podriamos usar created y updated at?
             $table->timestamps();
         });
     }

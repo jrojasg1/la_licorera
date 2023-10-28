@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Ingredient extends Model
 {
     /**
-     * $this->atribute['id']-int-Primary key
-     * this->atribute['quantity]-int-how many of this product is used in the recipe
-     * this->Recipe-Recipe-the recipe this items are going in
-     * this->Product-Product- the product this ingridient is "representing"
+     * this->atribute['id'] - int - Primary key
+     * this->atribute['quantity'] - int - how many of this product is used in the recipe
+     * this->atribute['created_at'] - timestamp - when was this ingredient created
+     * this->atribute['updated_at'] - timestamp - when was this ingredient's information last updated
+     * this->atribute['recipe_id'] - int - The id of the recipe this ingredient is a part of
+     * this->recipe - Recipe -the recipe this items are going in
+     * this->atribute['product_id'] - int - The id of the recipe this ingredient is representing
+     * this->product - Product - the product this ingridient is "representing"
      */
     public function setProductId(int $pid): void
     {
@@ -20,7 +24,7 @@ class Ingredient extends Model
 
     public function setProduct(Product $product): void
     {
-        $this->Product = $product;
+        $this->product = $product;
     }
 
     public function product(): BelongsTo
@@ -35,7 +39,7 @@ class Ingredient extends Model
 
     public function getProduct(): Product
     {
-        return $this->Product;
+        return $this->product;
     }
 
     public function setRecipeId(int $rid): void

@@ -49,17 +49,17 @@ class User extends Authenticatable
     ];
 
     /**
-     * $this->atribute['id']-int-Primary key
-     * this->atribute['email']-string-the user's email
-     * this->atribute['email_verified_at']-timestamp- when was the user's email verified as its own
-     * this->atribute['password']-string-the user's password
-     * this->atribute['addresses']-json- the list of addresses that the user has
-     * this->atribute['wallet']-int-the amount of money the user has
-     * this->atribute['role']-string-if the user is an admin or a end user
-     * this->atribute['created_at']-timestamp-when was this user created
-     * this->atribute['updated_at']-timestamp-when was this user's profile last updated
-     * this->recipes-Recipes[]-the recipes a given user has uploaded
-     * this->orders-order[]-the order a given user has made
+     * $this->atribute['id'] - int - Primary key
+     * this->atribute['email'] - string - the user's email
+     * this->atribute['email_verified_at'] - timestamp - when was the user's email verified as its own
+     * this->atribute['password'] - string - the user's password
+     * this->atribute['addresses'] - json - the list of addresses that the user has
+     * this->atribute['wallet'] - int - the amount of money the user has
+     * this->atribute['role'] - string - if the user is an admin or a end user
+     * this->atribute['created_at'] - timestamp - when was this user created
+     * this->atribute['updated_at'] - timestamp - when was this user's profile last updated
+     * this->recipes - Recipes[] - the recipes a given user has uploaded
+     * this->orders - Order[] - the order a given user has made
      */
     public function getId(): int
     {
@@ -71,9 +71,19 @@ class User extends Authenticatable
         return $this->attributes['name'];
     }
 
+    public function setName(string $name)
+    {
+        $this->attributes['name'] = $name;
+    }
+
     public function getEmail(): string
     {
         return $this->attributes['email'];
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->attributes['email'] = $email;
     }
 
     public function getPassword(): string
@@ -81,24 +91,51 @@ class User extends Authenticatable
         return $this->attributes['password'];
     }
 
+    public function setPassword(string $password): void
+    {
+        $this->attributes['password'] = $password;
+    }
+
     public function getAddresses(): string
     {
         return $this->attributes['addresses'];
     }
 
+    public function setAddresses(json $addresses): void
+    {
+        $this->attributes['addresses'];
+    }
+// no estoy seguro de esto-------------------------------------------------------------------
     public function getAddress(string $key): string
     {
         return $this->attributes['address'];
     }
+// no estoy seguro de esto-------------------------------------------------------------------
+    
+    public function setAddress(json $address): void
+    {
+        json_encode($address);
+    }
+
 
     public function getWallet(): int
     {
         return $this->attributes['wallet'];
     }
 
+    public function setWallet(int $wallet): void
+    {
+        $this->attributes['wallet'] = $wallet;
+    }
+
     public function getRole(): string
     {
         return $this->attributes['role'];
+    }
+
+    public function setRole(string $role): void
+    {
+        $this->attributes['role'] = $role;
     }
 
     public function getCreatedAt(): string
@@ -111,46 +148,6 @@ class User extends Authenticatable
         return $this->attributes['updated_at'];
     }
 
-    public function setName(string $name)
-    {
-        $this->attributes['name'] = $name;
-    }
-
-    public function setEmail(string $email): void
-    {
-        $this->attributes['email'] = $email;
-    }
-
-    public function setPassword(string $password): void
-    {
-        $this->attributes['password'] = $password;
-    }
-
-    public function setAddresses(json $addresses): void
-    {
-        $this->attributes['addresses'];
-    }
-
-    public function setAddress(json $address): void
-    {
-        json_encode($address);
-    }
-
-    public function setWallet(int $wallet): void
-    {
-        $this->attributes['wallet'] = $wallet;
-    }
-
-    public function setRole(string $role): void
-    {
-        $this->attributes['role'] = $role;
-    }
-
-    public function recipes(): HasMany
-    {
-        return $this->hasMany(Recipe::class);
-    }
-
     public function getRecipes(): Collection
     {
         return $this->Recipes;
@@ -161,9 +158,9 @@ class User extends Authenticatable
         $this->Recipes = $Recipes;
     }
 
-    public function Orders(): HasMany
+    public function recipes(): HasMany
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Recipe::class);
     }
 
     public function getOrder(): Collection
@@ -175,4 +172,11 @@ class User extends Authenticatable
     {
         $this->Orders = $Orders;
     }
+
+    public function Orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+
 }

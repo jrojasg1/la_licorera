@@ -11,12 +11,15 @@ use Illuminate\Http\Request;
 class Order extends Model
 {
     /**
-     * $this->atribute['id']-int-Primary key
-     * this->atribute['state']-string- what step of the delivery proces the oreder is
-     * this->atribute['total']-int-the the total value for this order
-     * this->atribute['delivery_date']-string- if it was already delivered when was it delivered
-     * this->User-User-who made this order
-     * this->Item-Item[]-relation between the oreder and the producte it has
+     * $this->atribute['id'] - int - Primary key
+     * this->atribute['state'] - string - what step of the delivery proces the oreder is
+     * this->atribute['total'] - int - the the total value for this order
+     * this->atribute['delivery_date'] - string - if it was already delivered when was it delivered
+     * this->atribute['created_at'] - timestamp - when was this order created
+     * this->atribute['updated_at'] - timestamp - when was this order's information last updated
+     * this->atribute['user_id'] - int - the id of the user that made this order
+     * this->user - User- who made this order
+     * this->item - Item[] - relation between the oreder and the producte it has
      */
     public static function validate(Request $request)
     {
@@ -36,44 +39,14 @@ class Order extends Model
         return $this->attributes['state'];
     }
 
-    public function getTotal(): int
-    {
-        return $this->attributes['total'];
-    }
-
-    public function getDeliveryDate(): string
-    {
-        return $this->attributes['delivery_date'];
-    }
-
-    public function getUserId(): int
-    {
-        return $this->attributes['user_id'];
-    }
-
-    public function getUser(): User
-    {
-        return $this->User;
-    }
-
-    public function getCreatedAt(): string
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function getUpdatedAt(): string
-    {
-        return $this->attributes['updated_at'];
-    }
-
     public function setState(string $state): void
     {
         $this->attributes['state'] = $state;
     }
 
-    public function setDeliveryDate(string $ddate): void
+    public function getTotal(): int
     {
-        $this->attributes['delivery_date'] = $ddate;
+        return $this->attributes['total'];
     }
 
     public function setTotal(int $total): void
@@ -81,9 +54,29 @@ class Order extends Model
         $this->attributes['total'] = $total;
     }
 
-    public function setUserId(int $uid): void
+    public function getDeliveryDate(): string
+    {
+        return $this->attributes['delivery_date'];
+    }
+
+    public function setDeliveryDate(string $ddate): void
+    {
+        $this->attributes['delivery_date'] = $ddate;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+        public function setUserId(int $uid): void
     {
         $this->attributes['user_id'] = $uid;
+    }
+
+    public function getUser(): User
+    {
+        return $this->User;
     }
 
     public function setUser(User $user): void
@@ -94,6 +87,16 @@ class Order extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
     }
 
     public function items(): HasMany
