@@ -28,14 +28,10 @@ class ProductController extends Controller
         $viewData = [];
         $product = Product::findOrFail($id);
         $ingredients = $product->getIngredients();
-        $recipes = [];
-        foreach ($ingredients as $ingredient) {
-            $recipes[$ingredient->getRecipeId()] = Recipe::findOrFail($ingredient->getRecipeId());
-        }
+
         $viewData['title'] = $product->getName();
         $viewData['subtitle'] = $product->getName();
         $viewData['product'] = $product;
-        $viewData['recipes'] = $recipes;
         $viewData['user'] = $userId = auth()->user();
 
         return view('product.show')->with('viewData', $viewData);

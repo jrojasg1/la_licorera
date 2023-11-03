@@ -47,10 +47,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($viewData["recipes"] as $recipe)
+                @foreach ($viewData['product']->getIngredients() as $ingredient)
                 <tr>
-                    <td>{{ $recipe->getName() }}</td>
-                    <td>{{ $recipe->getDifficulty() }}</td>
+                    <td>{{ $ingredient->getRecipe()->getName() }}</td>
+                    <td>{{ $ingredient->getRecipe()->getDifficulty() }}</td>
                 </tr>
                 @endforeach
         </div>
