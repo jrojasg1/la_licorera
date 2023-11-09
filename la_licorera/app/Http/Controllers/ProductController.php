@@ -28,10 +28,20 @@ class ProductController extends Controller
         $viewData = [];
         $product = Product::findOrFail($id);
         $ingredients = $product->getIngredients();
+        $price = $product->getPrice();
+
+        $url = 'https://api.exchangerate-api.com/v4/latest/USD';
+        $json = file_get_contents($url);
+        $exp = json_decode($json);
+
+        $convertion = $exp->rates->COP;
+
+        $converted = $price * $convertion;
 
         $viewData['title'] = $product->getName();
         $viewData['subtitle'] = $product->getName();
         $viewData['product'] = $product;
+        $viewData['cop'] = $converted;
         $viewData['user'] = $userId = auth()->user();
 
         return view('product.show')->with('viewData', $viewData);
