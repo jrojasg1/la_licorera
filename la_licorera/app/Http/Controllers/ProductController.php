@@ -30,7 +30,7 @@ class ProductController extends Controller
         $ingredients = $product->getIngredients();
         $price = $product->getPrice();
 
-        $url = 'https://api.exchangerate-api.com/v4/latest/USD';
+        $url = 'https://open.er-api.com/v6/latest/USD';
         $json = file_get_contents($url);
         $exp = json_decode($json);
 
