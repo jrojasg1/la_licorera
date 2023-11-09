@@ -17,8 +17,8 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">{{__('product.type')}}: {{ $viewData["product"]->getType() }}</li>
                 <li class="list-group-item">{{__('product.alcoholContent')}}: {{ $viewData["product"]->getAlcoholContent() }}</li>
-                <li class="list-group-item">{{__('product.price1')}}: {{ $viewData["product"]->getPrice() }}</li>
-                <li class="list-group-item">{{__('product.price2')}}: {{ $viewData["cop"]}}</li>
+                <li class="list-group-item">{{__('product.priceusd')}}: {{ $viewData["product"]->getPrice() }}</li>
+                <li class="list-group-item">{{__('product.pricecop')}}: {{ $viewData["cop"]}}</li>
                 <li class="list-group-item">{{__('product.available')}}: {{ $viewData["product"]->getStock() }}</li>
             </ul>
             <p class="card-text">
