@@ -62,7 +62,6 @@ class AdminProductController extends Controller
         $viewData = [];
         $viewData['title'] = 'Admin Page - Edit Product - Online Store';
         $viewData['product'] = Product::findOrFail($id);
-
         return view('admin.product.edit')->with('viewData', $viewData);
 
     }
@@ -74,8 +73,8 @@ class AdminProductController extends Controller
         $product->setName($request->input('name'));
         $product->setDescription($request->input('description'));
         $product->setPrice($request->input('price'));
-
-        if ($request->hasFile('image')) {
+        $product->setAlcoholContent($request->input('alcoholContent'));
+        if ($request->hasFile('image') || $request->input('image')) {
             $imageName = $product->getId().'.'.$request->file('image')->extension();
             Storage::disk('public')->put(
                 $imageName,

@@ -20,14 +20,14 @@
                 value="{{ $viewData['product']->getName() }}" />
             <select class="form-select mb-3" name="type" aria-label="Default select example">
                 <option selected>{{ $viewData['product']->getType() }}</option>
-                <option value="whisky">{{__('productAdmin.whisky')}}</option>
-                <option value="vodka">{{__('productAdmin.vodka')}}</option>
-                <option value="tequila">{{__('productAdmin.tequila')}}</option>
-                <option value="ron">{{__('productAdmin.ron')}}</option>
+                <option value="{{__('productAdmin.whisky')}}">{{__('productAdmin.whisky')}}</option>
+                <option value="{{__('productAdmin.vodka')}}">{{__('productAdmin.vodka')}}</option>
+                <option value="{{__('productAdmin.tequila')}}">{{__('productAdmin.tequila')}}</option>
+                <option value="{{__('productAdmin.ron')}}">{{__('productAdmin.ron')}}</option>
             </select>
             <input type="text" class="form-control mb-3" placeholder="{{__('productAdmin.description')}}" name="description"
                 value="{{ $viewData['product']->getDescription() }}" />
-            <input type="number" class="form-control mb-3" placeholder="{{__('productAdmin.lcoholContent')}}" name="alcoholContent"
+            <input type="number" class="form-control mb-3" placeholder="{{__('productAdmin.alcoholContent')}}" name="alcoholContent"
                 value="{{ $viewData['product']->getAlcoholContent() }}" />
             <input type="number" class="form-control mb-3" placeholder="{{__('productAdmin.price')}}" name="price"
                 value="{{ $viewData['product']->getPrice() }}" />
@@ -38,7 +38,10 @@
                 <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">{{__('productAdmin.image')}}:</label>
                     <div class="mb-3 row">
                         <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input class="form-control" type="file" name="image">
+                            <input class="form-control" type="file" name="image" value="{{ asset('/storage/'.$viewData["product"]->getImage())  }}">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{{ asset('/storage/'.$viewData["product"]->getImage()) }}" class="img-fluid rounded-start">
                         </div>
                     </div>
                 </div>
