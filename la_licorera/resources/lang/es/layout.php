@@ -14,4 +14,5 @@ return [
     'register' => 'Registrarse',
     'logOut' => 'Cerrar sesión',
     'admin' => 'Admin',
+    'api' => 'MotorHub'
 ];

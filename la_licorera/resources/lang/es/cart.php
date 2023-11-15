@@ -15,6 +15,7 @@ return [
     'total' => 'Total a pagar',
     'thanks' => 'Gracias por tu compra, tu número de orden es',
     'complete' => 'Compra finalizada',
-    'buy' => 'Comprar',
+    'buyAccountCredits' => 'Pagar BevaCrédito',
+    'buyVoucher' => 'Generar Voucher',
 
 ];

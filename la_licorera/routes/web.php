@@ -38,6 +38,8 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.ind
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@removeAll')->name('cart.delete');
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 
+Route::get('/motos', 'App\Http\Controllers\MotoController@index')->name('moto.index');
+
 Route::middleware('auth')->group(function () {
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
     

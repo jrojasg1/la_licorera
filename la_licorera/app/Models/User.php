@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\hasMany;
@@ -112,7 +113,7 @@ class User extends Authenticatable
     }
 // no estoy seguro de esto-------------------------------------------------------------------
     
-    public function setAddress(json $address): void
+    public function setAddress(string $address): void
     {
         json_encode($address);
     }
@@ -177,6 +178,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
-
 
 }

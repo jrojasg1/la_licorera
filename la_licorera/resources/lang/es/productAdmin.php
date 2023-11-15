@@ -11,7 +11,7 @@ return [
     'manage' => 'Administrar productos',
     'id' => 'ID',
     'name' => 'Nombre',
-    'alcoholContent' => 'Porcentaje_de_alcohol',
+    'alcoholContent' => 'Porcentaje de alcohol',
     'price' => 'Precio',
     'stock' => 'Cantidad_en_bodega',
     'description' => 'Descripcion',

@@ -48,6 +48,7 @@
             </div>
             <input type="submit" class="btn btn-outline-primary mx-auto d-grid gap-2 col-6" value="{{__('productAdmin.submit')}}" />
         </form>
+      
     </div>
 </div>
 @endsection

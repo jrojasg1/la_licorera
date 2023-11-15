@@ -13,14 +13,12 @@ class ProductResource extends JsonResource
             $id = $this->getId();
             $name = $this->getName();
             $stock = $this->getStock();
-            $image = $this->getImage();
             $price = $this->getPrice();
             return [
                 'id' => $id,
                 'name' => $name ,
                 'stock'=>$stock,
                 'price' => $price,
-                'image'=>$image,
                 'link'=>'http://127.0.0.1:8000/products/'.$id
             ];
         }
