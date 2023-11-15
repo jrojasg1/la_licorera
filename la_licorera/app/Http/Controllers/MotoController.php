@@ -12,7 +12,7 @@ class MotoController extends Controller
         $viewData['title'] = __('moto.title');
         $viewData['subtitle'] = __('moto.subtitle');
 
-        $url = 'moto-hub.tech/api/motorcycles';
+        $url = 'http://moto-hub.tech/api/motorcycles';
 
         $json = json_decode(file_get_contents($url),true);
         
