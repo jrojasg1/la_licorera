@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('product.index') }}">{{__('layout.licor')}}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('moto.index') }}">{{__('layout.api')}}</a>
+                    </li>
                 </ul>
                 <div class="navbar-nav ms-auto">
                     @guest

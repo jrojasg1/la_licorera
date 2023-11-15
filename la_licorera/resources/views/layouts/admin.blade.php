@@ -36,6 +36,10 @@
                             class="bi bi-cup-straw"></i> {{__('layoutAdmin.products')}}</a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.product.index') }}" class="nav-link text-white"> <i
+                            class="bi bi-cup-straw"></i> {{__('layoutAdmin.products')}}</a>
+                </li>
+                <li>
                     <a href="{{ route('admin.order.index') }}" class="nav-link text-white"> <i
                             class="bi bi-cup-straw"></i> {{__('layoutAdmin.orders')}}</a>
                 </li>
