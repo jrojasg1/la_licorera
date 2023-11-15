@@ -43,16 +43,16 @@
                     @else
                     @csrf
                     <a class="nav-link " href=""><h5>{{ Auth::user()->getName() }} - {{ Auth::user()->getWallet() }} {{__('layout.wallet')}} </h5></a>
-                    <a class="btn btn-success mr-5" href="{{ route('myaccount.orders') }}">{{__('layout.order')}}</a>
+                    <a class="btn btn-warning me-1 " href="{{ route('myaccount.orders') }}">{{__('layout.order')}}</a>
                     
-                    <a class="btn btn-success mr-5" href="{{ route('cart.index') }}">
+                    <a class="btn btn-warning me-1" href="{{ route('cart.index') }}">
                         <i class="bi bi-cart-fill"></i>
                     </a>
                     @if (Auth::user()->getRole()== 'admin')
-                        <a class="btn btn-success mr-5" href="{{ route('admin.home.index') }}">{{__('layout.admin')}}</a>
+                        <a class="btn btn-warning me-1 "  href="{{ route('admin.home.index') }}">{{__('layout.admin')}}</a>
                     @endif
                     <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a role="button" class="btn btn-primary"
+                        <a role="button" class="btn  btn-outline-warning"
                             onclick="document.getElementById('logout').submit();">{{__('layout.logOut')}}
                         </a>
                         @csrf
@@ -62,7 +62,7 @@
             </div>
         </div>
     </nav>
-    <header class="masthead bg-primary text-white text-center py-4">
+    <header class="masthead bg-warning text-dark text-center py-4">
         <div class="container d-flex align-items-center flex-column">
             <h2>@yield('subtitle',__('layout.slogan'))</h2>
         </div>

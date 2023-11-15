@@ -17,12 +17,16 @@
                     <form method="POST" action="{{ route('admin.recipe.save') }}">
                         @csrf
                         <input type="text" class="form-control mb-2" placeholder="{{__('recipeAdmin.name')}}" name="name" value="{{ old('name') }}" />
-                        <input type="text" class="form-control mb-2" placeholder="{{__('recipeAdmin.difficulty')}}" name="difficulty" value="{{ old('difficulty') }}" />
+                        <select class="form-select" name="difficulty"  aria-label="Default select example">
+                            <option value="1">{{__('recipeAdmin.difficultyOne')}}</option>
+                            <option value="2">{{__('recipeAdmin.difficultyTwo')}}</option>
+                            <option value="3">{{__('recipeAdmin.difficultyThree')}}</option>
+                        </select>
                         <p>{{__('recipeAdmin.recipe')}}</p>
                         <textarea row="8" cols="33" type="text" class="form-control mb-2" name="instructions" value="{{ old('instructions') }}"></textarea>
                         <div id="dynamic-fields">
                             <div class="dynamic-field input-group mb-3 mp-1">
-                                <select name="product[]"  class="form-select ">
+                                <select name="product[]" class="form-select ">
                                     @foreach($viewData["products"] as $prod)
                                     <option value="{{ $prod->getId() }}">{{ $prod->getName() }}</option>
                                     @endforeach
@@ -33,7 +37,10 @@
                         </div>
                         <button type="button" class="btn btn-success shadow" id="add-field"><i class="bi bi-plus-lg"></i></button>
                         </br>
-                        <input type="submit" class="btn btn-primary mt-2 shadow" value="{{__('recipeAdmin.submit')}}" />
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <input type="submit" class="btn btn-warning text-dark mt-2 shadow" value="{{__('recipeAdmin.submit')}}" />
+                        </div>
+
                     </form>
                 </div>
             </div>
@@ -62,7 +69,6 @@
             }
         });
     });
-    
 </script>
 
 

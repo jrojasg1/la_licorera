@@ -30,7 +30,6 @@
                     </td>
                     <td>${{ $item->getSubTotal() }}</td>
                     <td>{{ $item->getAmount() }}</td>
-                    <td>{{ $order->getUser()->getAddresses() }}</td>
                 </tr>
                 @endforeach
             </tbody>

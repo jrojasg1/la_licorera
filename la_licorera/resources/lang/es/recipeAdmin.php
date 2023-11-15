@@ -7,10 +7,9 @@ return [
     'difficulty' => 'Dificultad',
     'recipe' => 'Entra el paso a paso de tu receta',
     'product1' => 'Producto1',
-    'product2' => 'Producto2',
-    'product3' => 'Producto3',
-    'product4' => 'Producto4',
-    'product5' => 'Producto5',
+    'difficultyOne' => '1',
+    'difficultyTwo' => '2',
+    'difficultyThree' => '3',
     'quantity' => 'Cantidad',
     'submit' => 'Enviar',
 ];

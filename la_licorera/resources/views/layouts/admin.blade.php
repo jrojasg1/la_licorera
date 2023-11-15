@@ -36,12 +36,8 @@
                             class="bi bi-cup-straw"></i> {{__('layoutAdmin.products')}}</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.product.index') }}" class="nav-link text-white"> <i
-                            class="bi bi-cup-straw"></i> {{__('layoutAdmin.products')}}</a>
-                </li>
-                <li>
                     <a href="{{ route('admin.order.index') }}" class="nav-link text-white"> <i
-                            class="bi bi-cup-straw"></i> {{__('layoutAdmin.orders')}}</a>
+                            class="bi bi-box"></i> {{__('layoutAdmin.orders')}}</a>
                 </li>
 
                 @guest
@@ -52,7 +48,7 @@
                 <li><a class="nav-link text-white" href="{{ route('admin.recipe.create') }}"> <i
                             class="bi bi-basket3"></i> {{__('layoutAdmin.recipe')}}</a></li>
                 <form id="logout" action="{{ route('logout') }}" method="POST">
-                    <li><a role="button" class="nav-link active "
+                    <li><a role="button" class="text-warning nav-link active "
                             onclick="document.getElementById('logout').submit();"><i class="bi bi-box-arrow-left"></i>
                             {{__('layoutAdmin.logOut')}}</a>
                     </li>
@@ -60,7 +56,7 @@
                 </form>
                 @endguest
                 <li>
-                    <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">{{__('layoutAdmin.back')}}</a>
+                    <a href="{{ route('home.index') }}" class="mt-2 btn bg-warning text-dark">{{__('layoutAdmin.back')}}</a>
                 </li>
             </ul>
         </div>

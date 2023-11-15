@@ -2,6 +2,7 @@
 @section('title', $viewData["title"])
 @section('subtitle', $viewData["subtitle"])
 @section('content')
+
 <div class="col-md-12 mb-3">
     <span><b>{{__('product.sort')}}</b></span>
     <a href="{{URL::current()}}" style="color:black">{{__('product.nosort')}}</a>
@@ -21,7 +22,7 @@
             </ul>
             <div class="card-body text-center">
                 <a href="{{ route('product.show', ['id'=> $product->getId() ]) }}"
-                    class="btn bg-primary text-white">{{__('product.see')}}</a>
+                    class="btn bg-warning text-dark">{{__('product.see')}}</a>
             </div>
         </div>
     </div>
