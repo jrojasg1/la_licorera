@@ -102,10 +102,10 @@ class User extends Authenticatable
         return $this->attributes['addresses'];
     }
 
-   /*public function setAddresses(json $addresses): void
+    public function setAddresses(json $addresses): void
     {
         $this->attributes['addresses'];
-    }*/
+    }
 
     // no estoy seguro de esto-------------------------------------------------------------------
     public function getAddress(string $key): string
@@ -116,7 +116,7 @@ class User extends Authenticatable
 
     public function setAddress(string $address): void
     {
-        $this->attributes['addresses']=json_encode($address);
+        json_encode($address);
     }
 
     public function getWallet(): int
