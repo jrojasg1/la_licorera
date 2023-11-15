@@ -40,10 +40,14 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('
 
 Route::middleware('auth')->group(function () {
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
+    
 });
 
+Route::post('/cart/voucher', 'App\Http\Controllers\CartController@purchaseVoucher')->name('cart.purchaseVoucher');
 Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name('myaccount.orders');
+Route::get('/cart/pdf', 'App\Http\Controllers\CartController@purchaseVoucher')->name('cart.pdf');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
