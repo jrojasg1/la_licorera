@@ -14,7 +14,6 @@ class MotoController extends Controller
 
         $url = 'moto-hub.tech/api/motorcycles';
 
-            'model' => 'aa',
         $json = json_decode(file_get_contents($url),true);
         
         $viewData['json'] = $json;
