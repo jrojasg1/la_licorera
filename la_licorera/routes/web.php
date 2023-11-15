@@ -42,7 +42,7 @@ Route::get('/motos', 'App\Http\Controllers\MotoController@index')->name('moto.in
 
 Route::middleware('auth')->group(function () {
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
-    
+
 });
 
 Route::post('/cart/voucher', 'App\Http\Controllers\CartController@purchaseVoucher')->name('cart.purchaseVoucher');
@@ -52,4 +52,3 @@ Route::get('/cart/pdf', 'App\Http\Controllers\CartController@purchaseVoucher')->
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-

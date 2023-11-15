@@ -31,15 +31,10 @@
             <div class="text-end">
                 <a class="btn btn-outline-secondary mb-2"><b>{{__('cart.total')}}</b> ${{ $viewData["total"] }}</a>
                 @if (count($viewData["products"]) > 0)
-                <a a href="{{ route('cart.purchase') }}" class=" btn bg-primary text-white mb-2">{{__('cart.buyAccountCredits')}}</a>
-                <a a href="{{ route('cart.purchaseVoucher') }}" class=" btn bg-primary text-white mb-2">
-                    {{__('cart.buyVoucher')}}
-
-                </a>
                 <form method="POST" action="{{ route('cart.purchaseVoucher') }}">
                 @csrf
-                    <button type="submit" name="payment_type" value="voucher">Pagar con Voucher</button>
-                    <button type="submit" name="payment_type" value="account">Pagar con Cuenta</button>
+                    <button type="submit" class="btn bg-primary text-white mb-2" name="payment_type" value="voucher"> {{ __('cart.buyVoucher') }}</button>
+                    <button type="submit" class="btn bg-primary text-white mb-2" name="payment_type" value="account">{{ __('cart.buyAccountCredits') }} </button>
                 </form>
                 <a href="{{ route('cart.delete') }}">
                     <button class="btn btn-danger mb-2">    

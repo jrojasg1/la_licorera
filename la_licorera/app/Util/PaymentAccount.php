@@ -3,16 +3,16 @@
 namespace App\Util;
 
 use App\Interfaces\PaymentInterface;
-use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
 
 class PaymentAccount implements PaymentInterface
 {
-    public function processPayment(Request $request)
+    public function processPayment(Request $request):RedirectResponse
     {
         $productsInSession = $request->session()->get('cart_product_data');
         if ($productsInSession) {
@@ -54,7 +54,7 @@ class PaymentAccount implements PaymentInterface
             $viewData['subtitle'] = __('cart.purchasest');
             $viewData['order'] = $order;
 
-            return view('cart.purchase')->with('viewData', $viewData);
+            return back();
         } else {
             return redirect()->route('cart.index');
         }

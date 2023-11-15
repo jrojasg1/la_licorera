@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use App\Models\Product;
+use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
@@ -20,6 +20,4 @@ class ProductTest extends TestCase
             ->assertSee($testProduct->getType())
             ->assertSee($testProduct->getPrice());
     }
-
-
 }

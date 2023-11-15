@@ -170,7 +170,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\PaymentServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-        
+
     ])->toArray(),
 
     /*

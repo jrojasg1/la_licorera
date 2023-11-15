@@ -43,6 +43,7 @@ class AdminRecipeController extends Controller
             $ingredient->setRecipeId($newRecipe->getId());
             $ingredient->save();
         }
+
         return redirect()->route('admin.home.index');
     }
 }

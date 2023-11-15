@@ -69,7 +69,7 @@ class Order extends Model
         return $this->attributes['user_id'];
     }
 
-        public function setUserId(int $uid): void
+    public function setUserId(int $uid): void
     {
         $this->attributes['user_id'] = $uid;
     }

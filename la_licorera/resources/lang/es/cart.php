@@ -13,9 +13,19 @@ return [
     'price' => 'Precio',
     'quantity' => 'Cantidad',
     'total' => 'Total a pagar',
-    'thanks' => 'Gracias por tu compra, tu número de orden es',
+    'thanks' => 'Gracias por tu compra',
     'complete' => 'Compra finalizada',
-    'buyAccountCredits' => 'Pagar BevaCrédito',
+    'buyAccountCredits' => 'Pagar Crédito',
     'buyVoucher' => 'Generar Voucher',
+    'pdfTitle' => 'Factura',
+    'pdfProduct' => 'Producto',
+    'pdfQuantity' => 'Cantidad',
+    'pdfPrice' => 'Precio Unitario',
+    'pdfSubTotal' => 'Subtotal',
+    'pdfTotal' => 'Total',
+    
+    
+
+
 
 ];

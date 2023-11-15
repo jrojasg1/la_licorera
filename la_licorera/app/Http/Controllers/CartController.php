@@ -3,42 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\PaymentInterface;
-use App\Models\Item;
-use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 class CartController extends Controller
 {
-    public function purchaseVoucher(Request $request)
+    public function purchaseVoucher(Request $request):RedirectResponse
     {
         $payment = $request->get('payment_type');
-        
-        $paymentInterface = app(PaymentInterface::class,['payment_type' =>  $payment]);
+
+        $paymentInterface = app(PaymentInterface::class, ['payment_type' => $payment]);
         $paymentInterface->processPayment($request);
 
         return back();
-        
+
     }
-
-    /*public function purchase(Request $request)
-    {
-        $productsInSession = $request->session()->get('cart_product_data');
-        if ($productsInSession) {
-            $viewData = [];
-            $viewData['title'] = __('cart.purchase');
-            $viewData['subtitle'] = __('cart.purchasest');
-            $viewData['order'] = 'a tu correo lleagara el número de tu orden';
-
-            return view('cart.purchase')->with('viewData', $viewData);
-        } else {
-            return redirect()->route('cart.index');
-        }
-    }*/
 
     public function index(Request $request): View
     {

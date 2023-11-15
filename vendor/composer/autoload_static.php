@@ -52,6 +52,8 @@ class ComposerStaticInitc8a7642b6a153c0daf69853b801f52e6
         array (
             'Dompdf\\' => 7,
             'Doctrine\\Inflector\\' => 19,
+            'Database\\Seeders\\' => 17,
+            'Database\\Factories\\' => 19,
         ),
         'C' => 
         array (
@@ -60,6 +62,10 @@ class ComposerStaticInitc8a7642b6a153c0daf69853b801f52e6
         'B' => 
         array (
             'Barryvdh\\DomPDF\\' => 16,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -110,9 +116,9 @@ class ComposerStaticInitc8a7642b6a153c0daf69853b801f52e6
         ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/macroable',
+            0 => __DIR__ . '/..' . '/illuminate/collections',
             1 => __DIR__ . '/..' . '/illuminate/conditionable',
-            2 => __DIR__ . '/..' . '/illuminate/collections',
+            2 => __DIR__ . '/..' . '/illuminate/macroable',
             3 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Contracts\\' => 
@@ -131,6 +137,14 @@ class ComposerStaticInitc8a7642b6a153c0daf69853b801f52e6
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
         ),
+        'Database\\Seeders\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/pint/database/seeders',
+        ),
+        'Database\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/pint/database/factories',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -138,6 +152,10 @@ class ComposerStaticInitc8a7642b6a153c0daf69853b801f52e6
         'Barryvdh\\DomPDF\\' => 
         array (
             0 => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/pint/app',
         ),
     );
 

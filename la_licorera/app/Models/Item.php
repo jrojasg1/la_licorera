@@ -19,7 +19,7 @@ class Item extends Model
      * this->atribute['product_id'] - int - The id of the product this item is representing
      * this->product - Product - the product this item is "representing"
      */
-    public static function validate(Request $request):void
+    public static function validate(Request $request): void
     {
         $request->validate([
             'subtotal' => 'required|numeric|gt:0',
@@ -28,10 +28,6 @@ class Item extends Model
             'order_id' => 'required|exists:orders,id',
         ]);
     }
-
-
-
-
 
     public function setProductId(int $pid): void
     {
@@ -107,5 +103,4 @@ class Item extends Model
     {
         return $this->belongsTo(Order::class);
     }
-
 }

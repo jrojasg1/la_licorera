@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '705857aa8c747adaf833f30bbadc06c2d36fc8df',
+        'reference' => '9fa67d916f90b17c4f8bc3920c4adcbfa650a28d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '705857aa8c747adaf833f30bbadc06c2d36fc8df',
+            'reference' => '9fa67d916f90b17c4f8bc3920c4adcbfa650a28d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -90,6 +90,15 @@
             'install_path' => __DIR__ . '/../illuminate/support',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'laravel/pint' => array(
+            'pretty_version' => 'v1.13.6',
+            'version' => '1.13.6.0',
+            'reference' => '3e3d2ab01c7d8b484c18e6100ecf53639c744fa7',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../laravel/pint',
+            'aliases' => array(),
+            'dev_requirement' => true,
         ),
         'masterminds/html5' => array(
             'pretty_version' => '2.8.1',

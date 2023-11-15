@@ -1,21 +1,21 @@
-<?php 
+<?php
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Interfaces\PaymentInterface;
-use App\Util\PaymentVoucher;
 use App\Util\PaymentAccount;
+use App\Util\PaymentVoucher;
+use Illuminate\Support\ServiceProvider;
 
 class PaymentServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->bind(PaymentInterface::class, function ($app,$params){
+        $this->app->bind(PaymentInterface::class, function ($app, $params) {
             $payment = $params['payment_type'];
-            if($payment == 'voucher'){
+            if ($payment == 'voucher') {
                 return new PaymentVoucher();
-            }elseif($payment == 'account'){
+            } elseif ($payment == 'account') {
                 return new PaymentAccount();
             }
         });

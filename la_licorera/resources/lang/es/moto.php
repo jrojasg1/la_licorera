@@ -7,5 +7,5 @@ return [
     'price' => 'Precio',
     'title' => 'API Motos',
     'subtitle' => 'Lista de motos',
-    'motorhub' => 'MotorHub'
+    'motorhub' => 'MotorHub',
 ];

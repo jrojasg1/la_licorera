@@ -22,7 +22,7 @@ class AdminProductController extends Controller
 
     public function create(): View
     {
-        $viewData = []; 
+        $viewData = [];
         $viewData['title'] = __('productAdmin.create');
 
         return view('admin.product.create')->with('viewData', $viewData);
@@ -62,6 +62,7 @@ class AdminProductController extends Controller
         $viewData = [];
         $viewData['title'] = 'Admin Page - Edit Product - Online Store';
         $viewData['product'] = Product::findOrFail($id);
+
         return view('admin.product.edit')->with('viewData', $viewData);
 
     }

@@ -106,18 +106,18 @@ class User extends Authenticatable
     {
         $this->attributes['addresses'];
     }
-// no estoy seguro de esto-------------------------------------------------------------------
+
+    // no estoy seguro de esto-------------------------------------------------------------------
     public function getAddress(string $key): string
     {
         return $this->attributes['address'];
     }
-// no estoy seguro de esto-------------------------------------------------------------------
-    
+    // no estoy seguro de esto-------------------------------------------------------------------
+
     public function setAddress(string $address): void
     {
         json_encode($address);
     }
-
 
     public function getWallet(): int
     {
@@ -178,5 +178,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
-
 }

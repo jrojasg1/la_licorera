@@ -2,15 +2,15 @@
 @section('content')
 <div class="row">
 <link href="{{ asset('/css/pdf.css') }}" rel="stylesheet" />
-<h1>Factura</h1>
+<h1>{{__('cart.pdfTitle')}}</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio Unitario</th>
-                <th>Subtotal</th>
+                <th> {{__('cart.pdfProduct')}}</th>
+                <th> {{__('cart.pdfQuantity')}}</th>
+                <th> {{__('cart.pdfPrice')}}</th>
+                <th> {{__('cart.pdfSubTotal')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -26,11 +26,11 @@
     </table>
 
     <p class="total">
-        Total: {{ $total }}
+    {{__('cart.pdfTotal')}}: {{ $total }}
     </p>
 
     <div class="footer">
-        <p>Gracias por su compra</p>
+        <p> {{__('cart.thanks')}}</p>
     </div>
 </div>
 @endsection

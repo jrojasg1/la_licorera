@@ -1,10 +1,11 @@
-<?php 
+<?php
 
 namespace App\Interfaces;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\View\View;
 
-interface PaymentInterface {
-    public function processPayment(Request $request) ;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+
+interface PaymentInterface
+{
+    public function processPayment(Request $request):RedirectResponse;
 }

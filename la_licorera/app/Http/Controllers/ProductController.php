@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -20,6 +19,7 @@ class ProductController extends Controller
         } else {
             $viewData['products'] = Product::all();
         }
+
         return view('product.index')->with('viewData', $viewData);
     }
 
